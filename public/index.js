@@ -24468,13 +24468,60 @@
 	            React.createElement(
 	              "h4",
 	              { className: "modal-title", id: "myModalLabel" },
-	              "Modal title"
+	              "БР-009"
 	            )
 	          ),
 	          React.createElement(
 	            "div",
-	            { className: "modal-body" },
-	            "..."
+	            { className: "modal-body modal-block-info" },
+	            React.createElement(
+	              "div",
+	              { className: "row height-all" },
+	              React.createElement(
+	                "div",
+	                { className: "col-xs-7 height-all" },
+	                React.createElement("div", { className: "modal-block-img" })
+	              ),
+	              React.createElement(
+	                "div",
+	                { className: "col-xs-5 block-content height-all" },
+	                React.createElement(
+	                  "p",
+	                  null,
+	                  "Блок БР-009 представляет собой двухканальный супергетеродинный при­ем­ник. Функциональная схема блока БР-009 изображена на рисунке 4.19."
+	                ),
+	                React.createElement(
+	                  "p",
+	                  null,
+	                  "В состав схемы блока БР-009 входят следующие субблоки:"
+	                ),
+	                React.createElement(
+	                  "p",
+	                  null,
+	                  "а) усилители высокой частоты (УВЧ) суммарного и разностного кана­лов;"
+	                ),
+	                React.createElement(
+	                  "p",
+	                  null,
+	                  "б) усилители промежуточной частоты (УПЧ) суммарного и разност­ного ка­налов;"
+	                ),
+	                React.createElement(
+	                  "p",
+	                  null,
+	                  "в) кварцованный гетеродин с автоматической регулировкой мощности (АРМ);"
+	                ),
+	                React.createElement(
+	                  "p",
+	                  null,
+	                  "г) фазовый детектор (ФД);"
+	                ),
+	                React.createElement(
+	                  "p",
+	                  null,
+	                  "е) контрольно-измерительная схема."
+	                )
+	              )
+	            )
 	          ),
 	          React.createElement(
 	            "div",
@@ -24482,12 +24529,7 @@
 	            React.createElement(
 	              "button",
 	              { type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-	              "Close"
-	            ),
-	            React.createElement(
-	              "button",
-	              { type: "button", className: "btn btn-primary" },
-	              "Save changes"
+	              "Закрыть"
 	            )
 	          )
 	        )

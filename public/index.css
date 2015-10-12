@@ -6726,3 +6726,18 @@ button.close {
   background-image: url(/military/public/images/br009.png);
   background-size: cover;
 }
+.modal-block-img {
+  background-image: url(/military/public/images/br009.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.modal-block-info {
+  height: 470px;
+}
+.block-content {
+  overflow-y: scroll;
+}
+.height-all {
+  height: 100%;
+}
