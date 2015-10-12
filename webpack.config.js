@@ -13,7 +13,7 @@ const config = {
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'public'),
-    publicPath: '/public/',
+    publicPath: '/military/public/',
     chunkFilename: '[id].chunk.js'
   },
   module: {
