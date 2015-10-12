@@ -29,7 +29,7 @@ const config = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'url?limit=10000'
+        loader: 'file?name=images/[name].[ext]'
       },
       {
         test: /\.(woff|ttf|eot)/,
