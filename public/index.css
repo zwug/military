@@ -6714,3 +6714,15 @@ button.close {
     display: none !important;
   }
 }
+.schema-block {
+  height: 120px;
+  width: 88px;
+  border: 3px solid #000;
+}
+.schema-block:hover {
+  cursor: pointer;
+}
+.br009 {
+  background-image: url(/public/2f6da16649d988146c7b5b1b2a3c9809.png);
+  background-size: cover;
+}

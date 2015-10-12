@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(206);
+	module.exports = __webpack_require__(207);
 
 
 /***/ },
@@ -56,8 +56,8 @@
 
 	var React = __webpack_require__(2);
 	var router = __webpack_require__(158);
-	__webpack_require__(204);
 	__webpack_require__(205);
+	__webpack_require__(206);
 
 	React.render(router, document.body);
 
@@ -24415,6 +24415,7 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
+	var Modal = __webpack_require__(204);
 
 	var Prl = React.createClass({
 	  displayName: 'Prl',
@@ -24422,8 +24423,9 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
-	      'PRL'
+	      { className: 'container' },
+	      React.createElement('div', { className: 'schema-block br009', 'data-toggle': 'modal', 'data-target': '#myModal' }),
+	      React.createElement(Modal, null)
 	    );
 	  }
 	});
@@ -24432,6 +24434,72 @@
 
 /***/ },
 /* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(2);
+
+	var Modal = React.createClass({
+	  displayName: "Modal",
+
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      { className: "modal fade", id: "myModal", tabIndex: "-1", role: "dialog" },
+	      React.createElement(
+	        "div",
+	        { className: "modal-dialog", role: "document" },
+	        React.createElement(
+	          "div",
+	          { className: "modal-content" },
+	          React.createElement(
+	            "div",
+	            { className: "modal-header" },
+	            React.createElement(
+	              "button",
+	              { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
+	              React.createElement(
+	                "span",
+	                { "aria-hidden": "true" },
+	                "×"
+	              )
+	            ),
+	            React.createElement(
+	              "h4",
+	              { className: "modal-title", id: "myModalLabel" },
+	              "Modal title"
+	            )
+	          ),
+	          React.createElement(
+	            "div",
+	            { className: "modal-body" },
+	            "..."
+	          ),
+	          React.createElement(
+	            "div",
+	            { className: "modal-footer" },
+	            React.createElement(
+	              "button",
+	              { type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+	              "Close"
+	            ),
+	            React.createElement(
+	              "button",
+	              { type: "button", className: "btn btn-primary" },
+	              "Save changes"
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Modal;
+
+/***/ },
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -33647,7 +33715,7 @@
 
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -36014,10 +36082,10 @@
 
 	}(jQuery);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(204)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(205)))
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
