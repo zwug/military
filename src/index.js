@@ -1,6 +1,10 @@
-const React = require('react');
-const router = require('./router');
+const {render} = require('react-dom');
+
+const routes = require('./routes');
 require('jquery');
 require('bootstrap/dist/js/bootstrap');
 
-React.render(router, document.body);
+render(
+  routes,
+  document.getElementById('root')
+);
