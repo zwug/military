@@ -22,7 +22,7 @@ const Header = React.createClass({
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Интерактивные схемы<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><Link to="schemas/prl">ПРЛ</Link></li>
+                    <li><Link to="/schemas/prl">ПРЛ</Link></li>
                     <li role="separator" className="divider"></li>
                   </ul>
                 </li>
