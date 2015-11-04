@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(614);
+	module.exports = __webpack_require__(615);
 
 
 /***/ },
@@ -47372,8 +47372,7 @@
 	        React.createElement(
 	          Modal.Body,
 	          null,
-	          React.createElement('div', { className: 'modal-block-img' }),
-	          React.createElement('img', { src: '../../../static/images/br009.png' }),
+	          React.createElement('img', { className: 'modal-info-image', src: __webpack_require__(614) }),
 	          React.createElement(
 	            'p',
 	            null,
@@ -47474,6 +47473,12 @@
 
 /***/ },
 /* 614 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/br009.png"
+
+/***/ },
+/* 615 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
