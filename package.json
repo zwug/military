@@ -30,8 +30,7 @@
     "react-flexgrid": "0.7.0",
     "react-redux": "4.0.0",
     "react-router": "1.0.0-rc3",
-    "redux": "3.0.4",
-    "redux-router": "1.0.0-beta3"
+    "redux": "3.0.4"
   },
   "devDependencies": {
     "autoprefixer-loader": "3.1.0",
