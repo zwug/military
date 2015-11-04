@@ -1,5 +1,3 @@
-require('jquery');
-require('bootstrap/dist/js/bootstrap');
 import React from 'react';
 const {render} = require('react-dom');
 import {combineReducers, createStore, compose} from 'redux';
