@@ -1,9 +1,10 @@
 const React = require('react');
-const {connect} = require('react-redux');
-const {PopupToggle} = require('../actions');
 const Header = require('components/Header');
 
 const App = React.createClass({
+  propTypes: {
+    children: React.PropTypes.node
+  },
   render() {
     return (
       <div>
@@ -14,10 +15,4 @@ const App = React.createClass({
   }
 });
 
-function select(state) {
-  return {
-    showPopup: state.showPopup
-  };
-}
-
-module.exports = connect(select)(App);
+module.exports = App;

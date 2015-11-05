@@ -4,10 +4,10 @@ import {combineReducers, createStore, compose} from 'redux';
 import {Provider} from 'react-redux';
 import {devTools} from 'redux-devtools';
 import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react';
-const reducers = require('./reducers');
+const schemas = require('./reducers');
 
 const rootReducer = combineReducers({
-  reducers
+  schemas
 });
 
 const finalCreateStore = compose(devTools())(createStore);
