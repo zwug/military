@@ -25,10 +25,10 @@ const DRL = React.createClass({
     });
   },
   render() {
-    console.log(blocksImages);
     return (
       <div className="container">
         <img className="schema-block" id="br009" src={blocksImages.br009.base} onClick={this.onBlockClick}/>
+        <img className="schema-block" id="bp135" src={blocksImages.bp135.base} onClick={this.onBlockClick}/>
         <ModalInfo {...this.props.popupContent} show={this.props.showPopup} onHide={this.props.popupToggle} />
       </div>
     );
