@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(618);
+	module.exports = __webpack_require__(631);
 
 
 /***/ },
@@ -26646,6 +26646,13 @@
 	var _require2 = __webpack_require__(325);
 
 	var POPUP_TOGGLE = _require2.POPUP_TOGGLE;
+	var POPUP_UPDATE = _require2.POPUP_UPDATE;
+
+	var PopupInitialState = {
+	  src: '',
+	  text: '',
+	  title: ''
+	};
 
 	function showPopup() {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
@@ -26659,8 +26666,21 @@
 	  }
 	}
 
+	function popupContent() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? PopupInitialState : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case POPUP_UPDATE:
+	      return action.content;
+	    default:
+	      return state;
+	  }
+	}
+
 	var rootReducer = combineReducers({
-	  showPopup: showPopup
+	  showPopup: showPopup,
+	  popupContent: popupContent
 	});
 
 	module.exports = rootReducer;
@@ -26675,11 +26695,20 @@
 	  value: true
 	});
 	exports.popupToggle = popupToggle;
+	exports.popupUpdate = popupUpdate;
 	var POPUP_TOGGLE = exports.POPUP_TOGGLE = 'POPUP_TOGGLE';
+	var POPUP_UPDATE = exports.POPUP_UPDATE = 'POPUP_UPDATE';
 
 	function popupToggle() {
 	  return {
 	    type: POPUP_TOGGLE
+	  };
+	}
+
+	function popupUpdate(content) {
+	  return {
+	    type: POPUP_UPDATE,
+	    content: content
 	  };
 	}
 
@@ -26697,7 +26726,7 @@
 	var Route = _require.Route;
 
 	var App = __webpack_require__(373);
-	var Prl = __webpack_require__(615);
+	var DRL = __webpack_require__(615);
 
 	module.exports = React.createElement(
 	  Router,
@@ -26705,7 +26734,7 @@
 	  React.createElement(
 	    Route,
 	    { path: '/', component: App },
-	    React.createElement(Route, { path: 'schemas/prl', component: Prl })
+	    React.createElement(Route, { path: 'schemas/DRL', component: DRL })
 	  )
 	);
 
@@ -31093,7 +31122,6 @@
 	var Navbar = _require.Navbar;
 	var NavBrand = _require.NavBrand;
 	var NavDropdown = _require.NavDropdown;
-	var NavItem = _require.NavItem;
 	var MenuItem = _require.MenuItem;
 
 	var _require2 = __webpack_require__(612);
@@ -31118,20 +31146,15 @@
 	        Nav,
 	        null,
 	        React.createElement(
-	          NavItem,
-	          { eventKey: 1, href: '#' },
-	          'Link'
-	        ),
-	        React.createElement(
 	          NavDropdown,
-	          { eventKey: 2, title: 'Dropdown', id: 'basic-nav-dropdown' },
+	          { eventKey: 2, title: 'Интерактивные схемы', id: 'basic-nav-dropdown' },
 	          React.createElement(
 	            LinkContainer,
-	            { to: '/schemas/prl' },
+	            { to: '/schemas/DRL' },
 	            React.createElement(
 	              MenuItem,
 	              null,
-	              'ПРЛ'
+	              'ДРЛ'
 	            )
 	          ),
 	          React.createElement(MenuItem, { divider: true })
@@ -47488,6 +47511,8 @@
 
 	'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var React = __webpack_require__(2);
 
 	var _require = __webpack_require__(168);
@@ -47499,31 +47524,54 @@
 	var _require2 = __webpack_require__(325);
 
 	var popupToggle = _require2.popupToggle;
+	var popupUpdate = _require2.popupUpdate;
 
-	var Prl = React.createClass({
+	var blocksData = __webpack_require__(617);
+	var blocksImages = __webpack_require__(622);
+
+	var DRL = React.createClass({
 	  propTypes: {
 	    popupToggle: React.PropTypes.func.isRequired,
-	    showPopup: React.PropTypes.bool.isRequired
+	    popupUpdate: React.PropTypes.func.isRequired,
+	    showPopup: React.PropTypes.bool.isRequired,
+	    popupContent: React.PropTypes.shape({
+	      src: React.PropTypes.string.isRequired,
+	      text: React.PropTypes.string.isRequired,
+	      title: React.PropTypes.string.isRequired
+	    }).isRequired
+	  },
+	  onBlockClick: function onBlockClick(e) {
+	    this.props.popupToggle();
+	    this.props.popupUpdate({
+	      src: blocksImages[e.target.id].refactored,
+	      text: blocksData[e.target.id].text,
+	      title: blocksData[e.target.id].title
+	    });
 	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
-	      React.createElement('div', { className: 'schema-block br009', onClick: this.props.popupToggle }),
-	      React.createElement(ModalInfo, { show: this.props.showPopup, onHide: this.props.popupToggle })
+	      React.createElement('img', { className: 'schema-block', id: 'br009', src: blocksImages.br009.base, onClick: this.onBlockClick }),
+	      React.createElement('img', { className: 'schema-block', id: 'bp135', src: blocksImages.bp135.base, onClick: this.onBlockClick }),
+	      React.createElement('img', { className: 'schema-block', id: 'bchv021', src: blocksImages.bchv021.base, onClick: this.onBlockClick }),
+	      React.createElement('img', { className: 'schema-block', id: 'bp142', src: blocksImages.bp142.base, onClick: this.onBlockClick }),
+	      React.createElement(ModalInfo, _extends({}, this.props.popupContent, { show: this.props.showPopup, onHide: this.props.popupToggle }))
 	    );
 	  }
 	});
 
 	function mapStateToProps(state) {
 	  return {
-	    showPopup: state.showPopup
+	    showPopup: state.showPopup,
+	    popupContent: state.popupContent
 	  };
 	}
 
 	module.exports = connect(mapStateToProps, {
-	  popupToggle: popupToggle
-	})(Prl);
+	  popupToggle: popupToggle,
+	  popupUpdate: popupUpdate
+	})(DRL);
 
 /***/ },
 /* 616 */
@@ -47541,116 +47589,43 @@
 	var Button = _require.Button;
 
 	var ModalInfo = React.createClass({
+	  propTypes: {
+	    src: React.PropTypes.string.isRequired,
+	    text: React.PropTypes.string.isRequired,
+	    title: React.PropTypes.string.isRequired,
+	    onHide: React.PropTypes.func.isRequired
+	  },
+	  renderBlockInfo: function renderBlockInfo() {
+	    return {
+	      __html: this.props.text
+	    };
+	  },
 	  render: function render() {
 	    return React.createElement(
-	      'div',
-	      { className: 'static-modal' },
+	      Modal,
+	      _extends({}, this.props, { bsSize: 'large' }),
 	      React.createElement(
-	        Modal,
-	        _extends({}, this.props, { bsSize: 'large', 'aria-labelledby': 'contained-modal-title-lg' }),
+	        Modal.Header,
+	        null,
 	        React.createElement(
-	          Modal.Header,
+	          Modal.Title,
 	          null,
-	          React.createElement(
-	            Modal.Title,
-	            null,
-	            'Modal title'
-	          )
-	        ),
+	          this.props.title
+	        )
+	      ),
+	      React.createElement(
+	        Modal.Body,
+	        null,
+	        React.createElement('img', { className: 'modal-info-image', src: this.props.src }),
+	        React.createElement('div', { dangerouslySetInnerHTML: this.renderBlockInfo() })
+	      ),
+	      React.createElement(
+	        Modal.Footer,
+	        null,
 	        React.createElement(
-	          Modal.Body,
-	          null,
-	          React.createElement('img', { className: 'modal-info-image', src: __webpack_require__(617) }),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Блок БР-009 представляет собой двухканальный супергетеродинный при­ем­ник. Функциональная схема блока БР-009 изображена на рисунке 4.19.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'В состав схемы блока БР-009 входят следующие субблоки:'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'а) усилители высокой частоты (УВЧ) суммарного и разностного кана­лов;'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'б) усилители промежуточной частоты (УПЧ) суммарного и разност­ного ка­налов;'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'в) кварцованный гетеродин с автоматической регулировкой мощности (АРМ);'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'г) фазовый детектор (ФД);'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'е) контрольно-измерительная схема.'
-	          ),
-	          React.createElement('hr', null),
-	          React.createElement(
-	            'h4',
-	            null,
-	            'Overflowing text to show scroll behavior'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.'
-	          )
-	        ),
-	        React.createElement(
-	          Modal.Footer,
-	          null,
-	          React.createElement(
-	            Button,
-	            null,
-	            'Close'
-	          )
+	          Button,
+	          { onClick: this.props.onHide },
+	          'Закрыть'
 	        )
 	      )
 	    );
@@ -47663,10 +47638,140 @@
 /* 617 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/br009.png"
+	'use strict';
+
+	var br009 = __webpack_require__(618);
+	var bp135 = __webpack_require__(619);
+	var bchv021 = __webpack_require__(620);
+	var bp142 = __webpack_require__(621);
+
+	module.exports = {
+	  br009: {
+	    title: 'БР-009',
+	    text: br009
+	  },
+	  bp135: {
+	    title: 'БП-135',
+	    text: bp135
+	  },
+	  bchv021: {
+	    title: 'БЧВ-021',
+	    text: bchv021
+	  },
+	  bp142: {
+	    title: 'БП-142',
+	    text: bp142
+	  }
+	};
 
 /***/ },
 /* 618 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок БР-009 представляет собой двухканальный супергетеродинный при­ем­ник. Функциональная схема блока БР-009 изображена на рисунке 4.19.</p>\n<p>В состав схемы блока БР-009 входят следующие субблоки:</p>\n<p>а) усилители высокой частоты (УВЧ) суммарного и разностного кана­лов;</p>\n<p>б) усилители промежуточной частоты (УПЧ) суммарного и разност­ного ка­налов;</p>\n<p>в) кварцованный гетеродин с автоматической регулировкой мощности (АРМ);</p>\n<p>г) фазовый детектор (ФД);</p>\n<p>е) контрольно-измерительная схема.</p>\n";
+
+/***/ },
+/* 619 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок питания.</p>\n";
+
+/***/ },
+/* 620 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок череспериодного вычитания.</p>\n<i>Череспериодная компенсация - метод выделения отражённых от цели радиосигналов на фоне пассивных радиолокационных помех, основанный на использовании различия скоростей движения цели и источника помех.</i>\n";
+
+/***/ },
+/* 621 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок питания.</p>\n";
+
+/***/ },
+/* 622 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var br009Refactored = __webpack_require__(623);
+	var br009Base = __webpack_require__(624);
+	var bp135Refactored = __webpack_require__(625);
+	var bp135Base = __webpack_require__(626);
+	var bchv021Refactored = __webpack_require__(627);
+	var bchv021Base = __webpack_require__(628);
+	var bp142Refactored = __webpack_require__(629);
+	var bp142Base = __webpack_require__(630);
+
+	module.exports = {
+	  br009: {
+	    refactored: br009Refactored,
+	    base: br009Base
+	  },
+	  bp135: {
+	    refactored: bp135Refactored,
+	    base: bp135Base
+	  },
+	  bchv021: {
+	    refactored: bchv021Refactored,
+	    base: bchv021Base
+	  },
+	  bp142: {
+	    refactored: bp142Refactored,
+	    base: bp142Base
+	  }
+	};
+
+/***/ },
+/* 623 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/br009--50.png"
+
+/***/ },
+/* 624 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/br009--2f.png"
+
+/***/ },
+/* 625 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp135--3d.png"
+
+/***/ },
+/* 626 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp135--8e.png"
+
+/***/ },
+/* 627 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bchv021--f9.png"
+
+/***/ },
+/* 628 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bchv021--1a.png"
+
+/***/ },
+/* 629 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp142--30.png"
+
+/***/ },
+/* 630 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp142--2b.png"
+
+/***/ },
+/* 631 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
