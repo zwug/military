@@ -5,7 +5,7 @@ const ModalInfo = React.createClass({
   render() {
     return (
       <div className="static-modal">
-        <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal {...this.props} bsSize="large">
           <Modal.Header>
             <Modal.Title>Modal title</Modal.Title>
           </Modal.Header>
