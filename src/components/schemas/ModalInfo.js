@@ -24,7 +24,7 @@ const ModalInfo = React.createClass({
           <div dangerouslySetInnerHTML={this.renderBlockInfo()} />
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.props.onHide}>Close</Button>
+          <Button onClick={this.props.onHide}>Закрыть</Button>
         </Modal.Footer>
      </Modal>
     );
