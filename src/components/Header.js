@@ -1,6 +1,6 @@
 const React = require('react');
-const {Link} = require('react-router');
 const {Nav, Navbar, NavBrand, NavDropdown, NavItem, MenuItem} = require('react-bootstrap/lib');
+const {LinkContainer} = require('react-router-bootstrap');
 
 const Header = React.createClass({
   render() {
@@ -10,7 +10,7 @@ const Header = React.createClass({
         <Nav>
           <NavItem eventKey={1} href="#">Link</NavItem>
           <NavDropdown eventKey={2} title="Dropdown" id="basic-nav-dropdown">
-            <MenuItem eventKey="1"><Link to="/schemas/prl">ПРЛ</Link></MenuItem>
+            <LinkContainer to="/schemas/prl"><MenuItem>ПРЛ</MenuItem></LinkContainer>
             <MenuItem divider />
           </NavDropdown>
         </Nav>
