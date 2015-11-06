@@ -3,7 +3,8 @@ const {POPUP_TOGGLE, POPUP_UPDATE} = require('./actions');
 
 const PopupInitialState = {
   src: '',
-  text: ''
+  text: '',
+  title: ''
 };
 
 function showPopup(state = false, action) {

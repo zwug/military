@@ -5,6 +5,7 @@ const ModalInfo = React.createClass({
   propTypes: {
     src: React.PropTypes.string.isRequired,
     text: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired,
     onHide: React.PropTypes.func.isRequired
   },
   renderBlockInfo() {
@@ -16,7 +17,7 @@ const ModalInfo = React.createClass({
     return (
       <Modal {...this.props} bsSize="large">
         <Modal.Header>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>{this.props.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img className="modal-info-image" src={this.props.src}/>

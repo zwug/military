@@ -32,7 +32,7 @@ const config = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'file?name=images/[name].[ext]'
+        loader: 'file?name=images/[name]--[hash:2].[ext]'
       },
       {
         test: /\.(woff|ttf|eot)/,
