@@ -2,7 +2,6 @@ const {combineReducers} = require('redux');
 const {POPUP_TOGGLE} = require('./actions');
 
 function showPopup(state = false, action) {
-  console.log('POPUP_TOGGLE', state);
   switch (action.type) {
     case POPUP_TOGGLE:
       return !state;
@@ -11,8 +10,8 @@ function showPopup(state = false, action) {
   }
 }
 
-const militaryApp = combineReducers({
+const rootReducer = combineReducers({
   showPopup
 });
 
-module.exports = militaryApp;
+module.exports = rootReducer;

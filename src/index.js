@@ -1,17 +1,12 @@
 import React from 'react';
 const {render} = require('react-dom');
-import {combineReducers, createStore, compose} from 'redux';
+import {createStore, compose} from 'redux';
 import {Provider} from 'react-redux';
 import {devTools} from 'redux-devtools';
 import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react';
-const schemas = require('./reducers');
-
-const rootReducer = combineReducers({
-  schemas
-});
+const rootReducer = require('./reducers');
 
 const finalCreateStore = compose(devTools())(createStore);
-
 const store = finalCreateStore(rootReducer);
 const routes = require('./routes');
 

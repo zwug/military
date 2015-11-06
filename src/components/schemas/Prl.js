@@ -20,7 +20,7 @@ const Prl = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    showPopup: state.schemas.showPopup
+    showPopup: state.showPopup
   };
 }
 
