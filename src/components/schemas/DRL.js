@@ -43,7 +43,7 @@ const DRL = React.createClass({
           {this.renderBlock('БР-009', 'br009')}
           {this.renderBlock('БП-135', 'bp135')}
           {this.renderBlock('БЧВ-021', 'bchv021')}
-          {this.renderBlock('БП-142', 'bchv021')}
+          {this.renderBlock('БП-142', 'bp142')}
           {this.renderBlock('БПР-011', 'bpr011sm2')}
           {/* next row */}
           {this.renderBlock('БП-213', 'bp213')}
@@ -64,7 +64,22 @@ const DRL = React.createClass({
           {this.renderBlock('БКСГ', 'bksg')}
           {this.renderBlock('БПЧС', 'bpchs')}
         </div>
-        <div>
+        <div className="pull-left">
+          {this.renderBlock('СП-02', 'adrl', 'schema-block big')}
+        </div>
+        <div className="drl-right-side">
+          {this.renderBlock('ПВК', 'pvk', 'schema-block wide')}
+          {/* next row */}
+          {this.renderBlock('БУВ-2', 'buv2')}
+          {this.renderBlock('БУВ-2', 'buv2')}
+          {/* next row */}
+          {this.renderBlock('БПМ-021', 'bpm021')}
+          {this.renderBlock('БПМ-021', 'bpm021')}
+          {/* next row */}
+          {this.renderBlock('БВМ-011', 'bvm011')}
+          {this.renderBlock('БВМ-011', 'bvm011')}
+        </div>
+        <div className="pull-left">
           {this.renderBlock('СП-02', 'adrl', 'schema-block big')}
         </div>
         <ModalInfo {...this.props.popupContent} show={this.props.showPopup} onHide={this.props.popupToggle} />

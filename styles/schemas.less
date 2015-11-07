@@ -1,8 +1,8 @@
-@block-width: 88px;
+@block-width: 87px;
 @block-height: 120px;
 @block-width-big: 3 * @block-width;
 @block-height-big: 4 * @block-height;
-@block-border-width: 2px;
+@block-border-width: 1px;
 
 .schema-block {
   height: @block-height;
@@ -18,6 +18,10 @@
   &.big {
     width: @block-width-big;
     height: @block-height-big;
+  }
+
+  &.wide {
+    width: 2 * @block-width;
   }
 }
 
@@ -39,5 +43,10 @@
 
 .drl-left-side {
   width: 5 * @block-width;
+  float: left;
+}
+
+.drl-right-side {
+  width: 2 * @block-width;
   float: left;
 }
