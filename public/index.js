@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(631);
+	module.exports = __webpack_require__(664);
 
 
 /***/ },
@@ -47527,7 +47527,7 @@
 	var popupUpdate = _require2.popupUpdate;
 
 	var blocksData = __webpack_require__(617);
-	var blocksImages = __webpack_require__(622);
+	var blocksImages = __webpack_require__(633);
 
 	var DRL = React.createClass({
 	  propTypes: {
@@ -47544,18 +47544,55 @@
 	    this.props.popupToggle();
 	    this.props.popupUpdate({
 	      src: blocksImages[e.target.id].refactored,
-	      text: blocksData[e.target.id].text,
-	      title: blocksData[e.target.id].title
+	      text: blocksData[e.target.id],
+	      title: e.target.title
+	    });
+	  },
+	  renderBlock: function renderBlock(title, id) {
+	    var className = arguments.length <= 2 || arguments[2] === undefined ? 'schema-block' : arguments[2];
+
+	    return React.createElement('img', {
+	      className: className,
+	      id: id,
+	      title: title,
+	      alt: title,
+	      src: blocksImages[id].base,
+	      onClick: this.onBlockClick
 	    });
 	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
-	      React.createElement('img', { className: 'schema-block', id: 'br009', src: blocksImages.br009.base, onClick: this.onBlockClick }),
-	      React.createElement('img', { className: 'schema-block', id: 'bp135', src: blocksImages.bp135.base, onClick: this.onBlockClick }),
-	      React.createElement('img', { className: 'schema-block', id: 'bchv021', src: blocksImages.bchv021.base, onClick: this.onBlockClick }),
-	      React.createElement('img', { className: 'schema-block', id: 'bp142', src: blocksImages.bp142.base, onClick: this.onBlockClick }),
+	      React.createElement(
+	        'div',
+	        { className: 'drl-left-side' },
+	        this.renderBlock('БР-009', 'br009'),
+	        this.renderBlock('БП-135', 'bp135'),
+	        this.renderBlock('БЧВ-021', 'bchv021'),
+	        this.renderBlock('БП-142', 'bchv021'),
+	        this.renderBlock('БПР-011', 'bpr011sm2'),
+	        this.renderBlock('БП-213', 'bp213'),
+	        this.renderBlock('БРН-02', 'brn02'),
+	        this.renderBlock('БПР-011', 'bpr011sm2'),
+	        this.renderBlock('БП-138', 'bp138'),
+	        this.renderBlock('БПЧС', 'bpchs'),
+	        this.renderBlock('БР-009', 'br009'),
+	        this.renderBlock('БОСТ-011', 'bost011'),
+	        this.renderBlock('БУ-011', 'bu011'),
+	        this.renderBlock('БП-127', 'bp127'),
+	        this.renderBlock('БПР-011', 'bpr011sm2'),
+	        this.renderBlock('БП-213', 'bp213'),
+	        this.renderBlock('БОСТ-011', 'bost011'),
+	        this.renderBlock('БКИ-011', 'bki011'),
+	        this.renderBlock('БКСГ', 'bksg'),
+	        this.renderBlock('БПЧС', 'bpchs')
+	      ),
+	      React.createElement(
+	        'div',
+	        null,
+	        this.renderBlock('СП-02', 'adrl', 'schema-block big')
+	      ),
 	      React.createElement(ModalInfo, _extends({}, this.props.popupContent, { show: this.props.showPopup, onHide: this.props.popupToggle }))
 	    );
 	  }
@@ -47644,31 +47681,41 @@
 	var bp135 = __webpack_require__(619);
 	var bchv021 = __webpack_require__(620);
 	var bp142 = __webpack_require__(621);
+	var bpr011sm2 = __webpack_require__(622);
+	var adrl = __webpack_require__(623);
+	var bp213 = __webpack_require__(624);
+	var brn02 = __webpack_require__(625);
+	var bp138 = __webpack_require__(626);
+	var bpchs = __webpack_require__(627);
+	var bost011 = __webpack_require__(628);
+	var bu011 = __webpack_require__(629);
+	var bp127 = __webpack_require__(630);
+	var bki011 = __webpack_require__(631);
+	var bksg = __webpack_require__(632);
 
 	module.exports = {
-	  br009: {
-	    title: 'БР-009',
-	    text: br009
-	  },
-	  bp135: {
-	    title: 'БП-135',
-	    text: bp135
-	  },
-	  bchv021: {
-	    title: 'БЧВ-021',
-	    text: bchv021
-	  },
-	  bp142: {
-	    title: 'БП-142',
-	    text: bp142
-	  }
+	  br009: br009,
+	  bp135: bp135,
+	  bchv021: bchv021,
+	  bp142: bp142,
+	  bpr011sm2: bpr011sm2,
+	  adrl: adrl,
+	  bp213: bp213,
+	  brn02: brn02,
+	  bp138: bp138,
+	  bpchs: bpchs,
+	  bost011: bost011,
+	  bu011: bu011,
+	  bp127: bp127,
+	  bki011: bki011,
+	  bksg: bksg
 	};
 
 /***/ },
 /* 618 */
 /***/ function(module, exports) {
 
-	module.exports = "<p>Блок БР-009 представляет собой двухканальный супергетеродинный при­ем­ник. Функциональная схема блока БР-009 изображена на рисунке 4.19.</p>\n<p>В состав схемы блока БР-009 входят следующие субблоки:</p>\n<p>а) усилители высокой частоты (УВЧ) суммарного и разностного кана­лов;</p>\n<p>б) усилители промежуточной частоты (УПЧ) суммарного и разност­ного ка­налов;</p>\n<p>в) кварцованный гетеродин с автоматической регулировкой мощности (АРМ);</p>\n<p>г) фазовый детектор (ФД);</p>\n<p>е) контрольно-измерительная схема.</p>\n";
+	module.exports = "<p>Блок БР-009 представляет собой двухканальный супергетеродинный при­ем­ник.</p>\n<p>В состав схемы блока БР-009 входят следующие субблоки:</p>\n<p>а) усилители высокой частоты (УВЧ) суммарного и разностного кана­лов;</p>\n<p>б) усилители промежуточной частоты (УПЧ) суммарного и разност­ного ка­налов;</p>\n<p>в) кварцованный гетеродин с автоматической регулировкой мощности (АРМ);</p>\n<p>г) фазовый детектор (ФД);</p>\n<p>е) контрольно-измерительная схема.</p>\n";
 
 /***/ },
 /* 619 */
@@ -47690,18 +47737,106 @@
 
 /***/ },
 /* 622 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок приемника.</p>\n";
+
+/***/ },
+/* 623 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Стойка питания, состоит из магнетронного генератора (МГ), измерителя мощности; выпрямителя накала магнетрона (ВНМ), модулятора (МОД), высоковольтного выпрямителя (ВВВ)</p>\n";
+
+/***/ },
+/* 624 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок питания.</p>\n";
+
+/***/ },
+/* 625 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок развёртывающих напряжений предназначен, для формирования напряжений круговой развёртки электронного луча (ЭЛ) ИКО. Он состоит из двух одинаковых каналов, один из которых резервный.</p>\n<p>Каждый из каналов электрически связан со своим вращающимся трансформатором на валу привода антенны и включает в себя генератор гармонических колебаний с частотой fг = 3500 Гц и два фазовых детектора (ФД).</p>\n";
+
+/***/ },
+/* 626 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок питания.</p>\n";
+
+/***/ },
+/* 627 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок питания.</p>\n";
+
+/***/ },
+/* 628 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок обработки, синхронизации и трансляции.</p>\n<p>От компенсатора видеоимпульсы подаются на блок БОСТ-011 для дальнейшего их формирования очистки и подачи на индикатор ДРЛ.</p>\n";
+
+/***/ },
+/* 629 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок усреднения.</p>\n";
+
+/***/ },
+/* 630 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок питания.</p>\n";
+
+/***/ },
+/* 631 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок компенсатора импульсный.</p>\n<p>В БКИ из двух последовательностей импульсов ЗИ БЧК и ЗИ БУ формируется последовательность импульсов ЗИ СДЦ КОМ с переменным интервалом следования ТИ = 800/1200 мкс. Затем платой формирователя БОСТ из этих импульсов будет сформирована последовательность ИЗ ПД СДЦ.</p>\n";
+
+/***/ },
+/* 632 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>БКСГ.</p>\n";
+
+/***/ },
+/* 633 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var br009Refactored = __webpack_require__(623);
-	var br009Base = __webpack_require__(624);
-	var bp135Refactored = __webpack_require__(625);
-	var bp135Base = __webpack_require__(626);
-	var bchv021Refactored = __webpack_require__(627);
-	var bchv021Base = __webpack_require__(628);
-	var bp142Refactored = __webpack_require__(629);
-	var bp142Base = __webpack_require__(630);
+	var br009Refactored = __webpack_require__(634);
+	var br009Base = __webpack_require__(635);
+	var bp135Refactored = __webpack_require__(636);
+	var bp135Base = __webpack_require__(637);
+	var bchv021Refactored = __webpack_require__(638);
+	var bchv021Base = __webpack_require__(639);
+	var bp142Refactored = __webpack_require__(640);
+	var bp142Base = __webpack_require__(641);
+	var bpr011sm2Refactored = __webpack_require__(642);
+	var bpr011sm2Base = __webpack_require__(643);
+	var adrlRefactored = __webpack_require__(644);
+	var adrlBase = __webpack_require__(645);
+	var bp213Refactored = __webpack_require__(646);
+	var bp213Base = __webpack_require__(647);
+	var brn02Refactored = __webpack_require__(648);
+	var brn02Base = __webpack_require__(649);
+	var bp138Refactored = __webpack_require__(650);
+	var bp138Base = __webpack_require__(651);
+	var bpchsRefactored = __webpack_require__(652);
+	var bpchsBase = __webpack_require__(653);
+	var bost011Refactored = __webpack_require__(654);
+	var bost011Base = __webpack_require__(655);
+	var bu011Refactored = __webpack_require__(656);
+	var bu011Base = __webpack_require__(657);
+	var bp127Refactored = __webpack_require__(658);
+	var bp127Base = __webpack_require__(659);
+	var bki011Refactored = __webpack_require__(660);
+	var bki011Base = __webpack_require__(661);
+	var bksgRefactored = __webpack_require__(662);
+	var bksgBase = __webpack_require__(663);
 
 	module.exports = {
 	  br009: {
@@ -47719,59 +47854,235 @@
 	  bp142: {
 	    refactored: bp142Refactored,
 	    base: bp142Base
+	  },
+	  bpr011sm2: {
+	    refactored: bpr011sm2Refactored,
+	    base: bpr011sm2Base
+	  },
+	  adrl: {
+	    refactored: adrlRefactored,
+	    base: adrlBase
+	  },
+	  bp213: {
+	    refactored: bp213Refactored,
+	    base: bp213Base
+	  },
+	  brn02: {
+	    refactored: brn02Refactored,
+	    base: brn02Base
+	  },
+	  bp138: {
+	    refactored: bp138Refactored,
+	    base: bp138Base
+	  },
+	  bpchs: {
+	    refactored: bpchsRefactored,
+	    base: bpchsBase
+	  },
+	  bost011: {
+	    refactored: bost011Refactored,
+	    base: bost011Base
+	  },
+	  bu011: {
+	    refactored: bu011Refactored,
+	    base: bu011Base
+	  },
+	  bp127: {
+	    refactored: bp127Refactored,
+	    base: bp127Base
+	  },
+	  bki011: {
+	    refactored: bki011Refactored,
+	    base: bki011Base
+	  },
+	  bksg: {
+	    refactored: bksgRefactored,
+	    base: bksgBase
 	  }
 	};
 
 /***/ },
-/* 623 */
+/* 634 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/br009--50.png"
 
 /***/ },
-/* 624 */
+/* 635 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/br009--2f.png"
 
 /***/ },
-/* 625 */
+/* 636 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/bp135--3d.png"
 
 /***/ },
-/* 626 */
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/bp135--8e.png"
 
 /***/ },
-/* 627 */
+/* 638 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/bchv021--f9.png"
 
 /***/ },
-/* 628 */
+/* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/bchv021--1a.png"
 
 /***/ },
-/* 629 */
+/* 640 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/bp142--30.png"
 
 /***/ },
-/* 630 */
+/* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/bp142--2b.png"
 
 /***/ },
-/* 631 */
+/* 642 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bpr011sm2--b8.png"
+
+/***/ },
+/* 643 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bpr011sm2--9c.png"
+
+/***/ },
+/* 644 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/adrl--96.png"
+
+/***/ },
+/* 645 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/adrl--e7.png"
+
+/***/ },
+/* 646 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp213--93.png"
+
+/***/ },
+/* 647 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp213--3e.png"
+
+/***/ },
+/* 648 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/brn02--f4.png"
+
+/***/ },
+/* 649 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/brn02--59.png"
+
+/***/ },
+/* 650 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp138--ed.png"
+
+/***/ },
+/* 651 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp138--df.png"
+
+/***/ },
+/* 652 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bpchs--ca.png"
+
+/***/ },
+/* 653 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bpchs--78.png"
+
+/***/ },
+/* 654 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bost011--f0.png"
+
+/***/ },
+/* 655 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bost011--cd.png"
+
+/***/ },
+/* 656 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bu011--e7.png"
+
+/***/ },
+/* 657 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bu011--c4.png"
+
+/***/ },
+/* 658 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp127--af.png"
+
+/***/ },
+/* 659 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bp127--2a.png"
+
+/***/ },
+/* 660 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bki011--d2.png"
+
+/***/ },
+/* 661 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bki011--9f.png"
+
+/***/ },
+/* 662 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bksg--5b.png"
+
+/***/ },
+/* 663 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bksg--d5.png"
+
+/***/ },
+/* 664 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

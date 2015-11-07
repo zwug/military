@@ -6717,10 +6717,16 @@ button.close {
 .schema-block {
   height: 120px;
   width: 88px;
-  border: 3px solid #000;
+  border: 2px solid #000;
+  vertical-align: top;
+  float: left;
 }
 .schema-block:hover {
   cursor: pointer;
+}
+.schema-block.big {
+  width: 264px;
+  height: 480px;
 }
 .modal-info-image {
   height: 550px;
@@ -6734,6 +6740,10 @@ button.close {
 }
 .modal-footer {
   clear: both;
+}
+.drl-left-side {
+  width: 440px;
+  float: left;
 }
 .height-all {
   height: 100%;
