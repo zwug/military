@@ -20,19 +20,41 @@ const DRL = React.createClass({
     this.props.popupToggle();
     this.props.popupUpdate({
       src: blocksImages[e.target.id].refactored,
-      text: blocksData[e.target.id].text,
-      title: blocksData[e.target.id].title
+      text: blocksData[e.target.id],
+      title: e.target.title
     });
+  },
+  renderBlock(title, id, className = 'schema-block') {
+    return (
+      <img
+        className={className}
+        id={id}
+        title={title}
+        alt={title}
+        src={blocksImages[id].base}
+        onClick={this.onBlockClick}
+      />
+    );
   },
   render() {
     return (
       <div className="container">
         <div className="drl-left-side">
-          <img className="schema-block" alt="БР-009" id="br009" src={blocksImages.br009.base} onClick={this.onBlockClick}/>
-          <img className="schema-block" alt="БП-135" id="bp135" src={blocksImages.bp135.base} onClick={this.onBlockClick}/>
-          <img className="schema-block" alt="БЧВ-021" id="bchv021" src={blocksImages.bchv021.base} onClick={this.onBlockClick}/>
-          <img className="schema-block" alt="БП-142" id="bp142" src={blocksImages.bp142.base} onClick={this.onBlockClick}/>
-          <img className="schema-block" alt="БПР-011" id="bpr011sm2" src={blocksImages.bpr011sm2.base} onClick={this.onBlockClick}/>
+          {this.renderBlock('БР-009', 'br009')}
+          {this.renderBlock('БП-135', 'bp135')}
+          {this.renderBlock('БЧВ-021', 'bchv021')}
+          {this.renderBlock('БП-142', 'bchv021')}
+          {this.renderBlock('БПР-011', 'bpr011sm2')}
+          {/* next row */}
+          {this.renderBlock('БП-213', 'bp213')}
+          {this.renderBlock('БРН-02', 'brn02')}
+          {this.renderBlock('БПР-011', 'bpr011sm2')}
+          {this.renderBlock('БП-138', 'bp138')}
+          {this.renderBlock('БПЧС', 'bpchs')}
+          {/* next row */}
+          {this.renderBlock('БР-009', 'br009')}
+          {this.renderBlock('БОСТ-011', 'bost011')}
+
         </div>
         <img className="schema-block big" alt="СП-02" id="adrl" src={blocksImages.adrl.base} onClick={this.onBlockClick}/>
 
