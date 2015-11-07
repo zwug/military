@@ -9,6 +9,10 @@ const brn02 = require('html!./brn02.html');
 const bp138 = require('html!./bp138.html');
 const bpchs = require('html!./bpchs.html');
 const bost011 = require('html!./bost011.html');
+const bu011 = require('html!./bu011.html');
+const bp127 = require('html!./bp127.html');
+const bki011 = require('html!./bki011.html');
+const bksg = require('html!./bksg.html');
 
 module.exports = {
   br009,
@@ -21,5 +25,9 @@ module.exports = {
   brn02,
   bp138,
   bpchs,
-  bost011
+  bost011,
+  bu011,
+  bp127,
+  bki011,
+  bksg
 };

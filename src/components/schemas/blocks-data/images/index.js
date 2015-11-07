@@ -20,6 +20,14 @@ const bpchsRefactored = require('../../../../../static/images/refactored/bpchs.p
 const bpchsBase = require('../../../../../static/images/bpchs.png');
 const bost011Refactored = require('../../../../../static/images/refactored/bost011.png');
 const bost011Base = require('../../../../../static/images/bost011.png');
+const bu011Refactored = require('../../../../../static/images/refactored/bu011.png');
+const bu011Base = require('../../../../../static/images/bu011.png');
+const bp127Refactored = require('../../../../../static/images/refactored/bp127.png');
+const bp127Base = require('../../../../../static/images/bp127.png');
+const bki011Refactored = require('../../../../../static/images/refactored/bki011.png');
+const bki011Base = require('../../../../../static/images/bki011.png');
+const bksgRefactored = require('../../../../../static/images/refactored/bksg.png');
+const bksgBase = require('../../../../../static/images/bksg.png');
 
 module.exports = {
   br009: {
@@ -65,5 +73,21 @@ module.exports = {
   bost011: {
     refactored: bost011Refactored,
     base: bost011Base
+  },
+  bu011: {
+    refactored: bu011Refactored,
+    base: bu011Base
+  },
+  bp127: {
+    refactored: bp127Refactored,
+    base: bp127Base
+  },
+  bki011: {
+    refactored: bki011Refactored,
+    base: bki011Base
+  },
+  bksg: {
+    refactored: bksgRefactored,
+    base: bksgBase
   }
 };
