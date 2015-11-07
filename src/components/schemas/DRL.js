@@ -27,10 +27,16 @@ const DRL = React.createClass({
   render() {
     return (
       <div className="container">
-        <img className="schema-block" id="br009" src={blocksImages.br009.base} onClick={this.onBlockClick}/>
-        <img className="schema-block" id="bp135" src={blocksImages.bp135.base} onClick={this.onBlockClick}/>
-        <img className="schema-block" id="bchv021" src={blocksImages.bchv021.base} onClick={this.onBlockClick}/>
-        <img className="schema-block" id="bp142" src={blocksImages.bp142.base} onClick={this.onBlockClick}/>
+        <div className="drl-left-side">
+          <img className="schema-block" alt="БР-009" id="br009" src={blocksImages.br009.base} onClick={this.onBlockClick}/>
+          <img className="schema-block" alt="БП-135" id="bp135" src={blocksImages.bp135.base} onClick={this.onBlockClick}/>
+          <img className="schema-block" alt="БЧВ-021" id="bchv021" src={blocksImages.bchv021.base} onClick={this.onBlockClick}/>
+          <img className="schema-block" alt="БП-142" id="bp142" src={blocksImages.bp142.base} onClick={this.onBlockClick}/>
+          <img className="schema-block" alt="БПР-011" id="bpr011sm2" src={blocksImages.bpr011sm2.base} onClick={this.onBlockClick}/>
+        </div>
+        <img className="schema-block big" alt="СП-02" id="adrl" src={blocksImages.adrl.base} onClick={this.onBlockClick}/>
+
+
         <ModalInfo {...this.props.popupContent} show={this.props.showPopup} onHide={this.props.popupToggle} />
       </div>
     );

@@ -1,9 +1,23 @@
+@block-width: 88px;
+@block-height: 120px;
+@block-width-big: 3 * @block-width;
+@block-height-big: 4 * @block-height;
+@block-border-width: 2px;
+
 .schema-block {
-  height: 120px;
-  width: 88px;
-  border: 3px solid #000;
+  height: @block-height;
+  width: @block-width;
+  border: @block-border-width solid #000;
+  vertical-align: top;
+  float: left;
+
   &:hover {
     cursor: pointer;
+  }
+
+  &.big {
+    width: @block-width-big;
+    height: @block-height-big;
   }
 }
 
@@ -21,4 +35,8 @@
 
 .modal-footer {
   clear: both;
+}
+
+.drl-left-side {
+  width: 5 * (@block-width + 2 * @block-border-width);
 }
