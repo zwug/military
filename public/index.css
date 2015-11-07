@@ -6716,8 +6716,8 @@ button.close {
 }
 .schema-block {
   height: 120px;
-  width: 88px;
-  border: 2px solid #000;
+  width: 87px;
+  border: 1px solid #000;
   vertical-align: top;
   float: left;
 }
@@ -6725,8 +6725,11 @@ button.close {
   cursor: pointer;
 }
 .schema-block.big {
-  width: 264px;
+  width: 261px;
   height: 480px;
+}
+.schema-block.wide {
+  width: 174px;
 }
 .modal-info-image {
   height: 550px;
@@ -6742,7 +6745,11 @@ button.close {
   clear: both;
 }
 .drl-left-side {
-  width: 440px;
+  width: 435px;
+  float: left;
+}
+.drl-right-side {
+  width: 174px;
   float: left;
 }
 .height-all {

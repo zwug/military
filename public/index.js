@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(664);
+	module.exports = __webpack_require__(676);
 
 
 /***/ },
@@ -47527,7 +47527,7 @@
 	var popupUpdate = _require2.popupUpdate;
 
 	var blocksData = __webpack_require__(617);
-	var blocksImages = __webpack_require__(633);
+	var blocksImages = __webpack_require__(637);
 
 	var DRL = React.createClass({
 	  propTypes: {
@@ -47570,7 +47570,7 @@
 	        this.renderBlock('БР-009', 'br009'),
 	        this.renderBlock('БП-135', 'bp135'),
 	        this.renderBlock('БЧВ-021', 'bchv021'),
-	        this.renderBlock('БП-142', 'bchv021'),
+	        this.renderBlock('БП-142', 'bp142'),
 	        this.renderBlock('БПР-011', 'bpr011sm2'),
 	        this.renderBlock('БП-213', 'bp213'),
 	        this.renderBlock('БРН-02', 'brn02'),
@@ -47590,7 +47590,23 @@
 	      ),
 	      React.createElement(
 	        'div',
-	        null,
+	        { className: 'pull-left' },
+	        this.renderBlock('СП-02', 'adrl', 'schema-block big')
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'drl-right-side' },
+	        this.renderBlock('ПВК', 'pvk', 'schema-block wide'),
+	        this.renderBlock('БУВ-2', 'buv2'),
+	        this.renderBlock('БУВ-2', 'buv2'),
+	        this.renderBlock('БПМ-021', 'bpm021'),
+	        this.renderBlock('БПМ-021', 'bpm021'),
+	        this.renderBlock('БВМ-011', 'bvm011'),
+	        this.renderBlock('БВМ-011', 'bvm011')
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'pull-left' },
 	        this.renderBlock('СП-02', 'adrl', 'schema-block big')
 	      ),
 	      React.createElement(ModalInfo, _extends({}, this.props.popupContent, { show: this.props.showPopup, onHide: this.props.popupToggle }))
@@ -47692,6 +47708,10 @@
 	var bp127 = __webpack_require__(630);
 	var bki011 = __webpack_require__(631);
 	var bksg = __webpack_require__(632);
+	var pvk = __webpack_require__(633);
+	var buv2 = __webpack_require__(634);
+	var bpm021 = __webpack_require__(635);
+	var bvm011 = __webpack_require__(636);
 
 	module.exports = {
 	  br009: br009,
@@ -47708,7 +47728,11 @@
 	  bu011: bu011,
 	  bp127: bp127,
 	  bki011: bki011,
-	  bksg: bksg
+	  bksg: bksg,
+	  pvk: pvk,
+	  buv2: buv2,
+	  bpm021: bpm021,
+	  bvm011: bvm011
 	};
 
 /***/ },
@@ -47803,40 +47827,72 @@
 
 /***/ },
 /* 633 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Передатчик вторичного канала.</p>\n<p>Передатчик вторичного канала ПВК запускается ИЗ ПД АКТ с периодом повторения Ти = 2000 мкс (Fи=500 Гц). ПВК генерирует запросный сигнал в виде пары ВЧ импульсов на частоте fи=837,5 МГц длительностью 1,2 мкс с интервалом 9,4 мкс (код запроса БН) или 14 мкс (код запроса ТИ). Парные радиоимпульсы запросных сигналов БН и ТИ (ЗСБН и ЗСТИ) излучает антенна ДРЛ А0. Самолетный ответчик принимает запросные сигналы, декодирует их и через некоторое время излучает ответные сигналы (ОС) в соответствии с кодом запроса: ОСБН и ОСТИ.</p>\n";
+
+/***/ },
+/* 634 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок управления выпрямителем.</p>\n";
+
+/***/ },
+/* 635 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок подмодулятора.</p>\n<p>Включение режимов РСП-1, РСП-2, УВД производится на передней панели блока БПМ.</p>\n";
+
+/***/ },
+/* 636 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>Блок выпрямителя модулятора.</p>\n";
+
+/***/ },
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var br009Refactored = __webpack_require__(634);
-	var br009Base = __webpack_require__(635);
-	var bp135Refactored = __webpack_require__(636);
-	var bp135Base = __webpack_require__(637);
-	var bchv021Refactored = __webpack_require__(638);
-	var bchv021Base = __webpack_require__(639);
-	var bp142Refactored = __webpack_require__(640);
-	var bp142Base = __webpack_require__(641);
-	var bpr011sm2Refactored = __webpack_require__(642);
-	var bpr011sm2Base = __webpack_require__(643);
-	var adrlRefactored = __webpack_require__(644);
-	var adrlBase = __webpack_require__(645);
-	var bp213Refactored = __webpack_require__(646);
-	var bp213Base = __webpack_require__(647);
-	var brn02Refactored = __webpack_require__(648);
-	var brn02Base = __webpack_require__(649);
-	var bp138Refactored = __webpack_require__(650);
-	var bp138Base = __webpack_require__(651);
-	var bpchsRefactored = __webpack_require__(652);
-	var bpchsBase = __webpack_require__(653);
-	var bost011Refactored = __webpack_require__(654);
-	var bost011Base = __webpack_require__(655);
-	var bu011Refactored = __webpack_require__(656);
-	var bu011Base = __webpack_require__(657);
-	var bp127Refactored = __webpack_require__(658);
-	var bp127Base = __webpack_require__(659);
-	var bki011Refactored = __webpack_require__(660);
-	var bki011Base = __webpack_require__(661);
-	var bksgRefactored = __webpack_require__(662);
-	var bksgBase = __webpack_require__(663);
+	var br009Refactored = __webpack_require__(638);
+	var br009Base = __webpack_require__(639);
+	var bp135Refactored = __webpack_require__(640);
+	var bp135Base = __webpack_require__(641);
+	var bchv021Refactored = __webpack_require__(642);
+	var bchv021Base = __webpack_require__(643);
+	var bp142Refactored = __webpack_require__(644);
+	var bp142Base = __webpack_require__(645);
+	var bpr011sm2Refactored = __webpack_require__(646);
+	var bpr011sm2Base = __webpack_require__(647);
+	var adrlRefactored = __webpack_require__(648);
+	var adrlBase = __webpack_require__(649);
+	var bp213Refactored = __webpack_require__(650);
+	var bp213Base = __webpack_require__(651);
+	var brn02Refactored = __webpack_require__(652);
+	var brn02Base = __webpack_require__(653);
+	var bp138Refactored = __webpack_require__(654);
+	var bp138Base = __webpack_require__(655);
+	var bpchsRefactored = __webpack_require__(656);
+	var bpchsBase = __webpack_require__(657);
+	var bost011Refactored = __webpack_require__(658);
+	var bost011Base = __webpack_require__(659);
+	var bu011Refactored = __webpack_require__(660);
+	var bu011Base = __webpack_require__(661);
+	var bp127Refactored = __webpack_require__(662);
+	var bp127Base = __webpack_require__(663);
+	var bki011Refactored = __webpack_require__(664);
+	var bki011Base = __webpack_require__(665);
+	var bksgRefactored = __webpack_require__(666);
+	var bksgBase = __webpack_require__(667);
+	var pvkRefactored = __webpack_require__(668);
+	var pvkBase = __webpack_require__(669);
+	var buv2Refactored = __webpack_require__(670);
+	var buv2Base = __webpack_require__(671);
+	var bpm021Refactored = __webpack_require__(672);
+	var bpm021Base = __webpack_require__(673);
+	var bvm011Refactored = __webpack_require__(674);
+	var bvm011Base = __webpack_require__(675);
 
 	module.exports = {
 	  br009: {
@@ -47898,191 +47954,255 @@
 	  bksg: {
 	    refactored: bksgRefactored,
 	    base: bksgBase
+	  },
+	  pvk: {
+	    refactored: pvkRefactored,
+	    base: pvkBase
+	  },
+	  buv2: {
+	    refactored: buv2Refactored,
+	    base: buv2Base
+	  },
+	  bpm021: {
+	    refactored: bpm021Refactored,
+	    base: bpm021Base
+	  },
+	  bvm011: {
+	    refactored: bvm011Refactored,
+	    base: bvm011Base
 	  }
 	};
-
-/***/ },
-/* 634 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "images/br009--50.png"
-
-/***/ },
-/* 635 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "images/br009--2f.png"
-
-/***/ },
-/* 636 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "images/bp135--3d.png"
-
-/***/ },
-/* 637 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "images/bp135--8e.png"
 
 /***/ },
 /* 638 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bchv021--f9.png"
+	module.exports = __webpack_require__.p + "images/br009--50.png"
 
 /***/ },
 /* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bchv021--1a.png"
+	module.exports = __webpack_require__.p + "images/br009--2f.png"
 
 /***/ },
 /* 640 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp142--30.png"
+	module.exports = __webpack_require__.p + "images/bp135--3d.png"
 
 /***/ },
 /* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp142--2b.png"
+	module.exports = __webpack_require__.p + "images/bp135--8e.png"
 
 /***/ },
 /* 642 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bpr011sm2--b8.png"
+	module.exports = __webpack_require__.p + "images/bchv021--f9.png"
 
 /***/ },
 /* 643 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bpr011sm2--9c.png"
+	module.exports = __webpack_require__.p + "images/bchv021--1a.png"
 
 /***/ },
 /* 644 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/adrl--96.png"
+	module.exports = __webpack_require__.p + "images/bp142--30.png"
 
 /***/ },
 /* 645 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/adrl--e7.png"
+	module.exports = __webpack_require__.p + "images/bp142--2b.png"
 
 /***/ },
 /* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp213--93.png"
+	module.exports = __webpack_require__.p + "images/bpr011sm2--b8.png"
 
 /***/ },
 /* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp213--3e.png"
+	module.exports = __webpack_require__.p + "images/bpr011sm2--9c.png"
 
 /***/ },
 /* 648 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/brn02--f4.png"
+	module.exports = __webpack_require__.p + "images/adrl--96.png"
 
 /***/ },
 /* 649 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/brn02--59.png"
+	module.exports = __webpack_require__.p + "images/adrl--e7.png"
 
 /***/ },
 /* 650 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp138--ed.png"
+	module.exports = __webpack_require__.p + "images/bp213--93.png"
 
 /***/ },
 /* 651 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp138--df.png"
+	module.exports = __webpack_require__.p + "images/bp213--3e.png"
 
 /***/ },
 /* 652 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bpchs--ca.png"
+	module.exports = __webpack_require__.p + "images/brn02--f4.png"
 
 /***/ },
 /* 653 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bpchs--78.png"
+	module.exports = __webpack_require__.p + "images/brn02--59.png"
 
 /***/ },
 /* 654 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bost011--f0.png"
+	module.exports = __webpack_require__.p + "images/bp138--ed.png"
 
 /***/ },
 /* 655 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bost011--cd.png"
+	module.exports = __webpack_require__.p + "images/bp138--df.png"
 
 /***/ },
 /* 656 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bu011--e7.png"
+	module.exports = __webpack_require__.p + "images/bpchs--ca.png"
 
 /***/ },
 /* 657 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bu011--c4.png"
+	module.exports = __webpack_require__.p + "images/bpchs--78.png"
 
 /***/ },
 /* 658 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp127--af.png"
+	module.exports = __webpack_require__.p + "images/bost011--f0.png"
 
 /***/ },
 /* 659 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bp127--2a.png"
+	module.exports = __webpack_require__.p + "images/bost011--cd.png"
 
 /***/ },
 /* 660 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bki011--d2.png"
+	module.exports = __webpack_require__.p + "images/bu011--e7.png"
 
 /***/ },
 /* 661 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bki011--9f.png"
+	module.exports = __webpack_require__.p + "images/bu011--c4.png"
 
 /***/ },
 /* 662 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bksg--5b.png"
+	module.exports = __webpack_require__.p + "images/bp127--af.png"
 
 /***/ },
 /* 663 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bksg--d5.png"
+	module.exports = __webpack_require__.p + "images/bp127--2a.png"
 
 /***/ },
 /* 664 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bki011--d2.png"
+
+/***/ },
+/* 665 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bki011--9f.png"
+
+/***/ },
+/* 666 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bksg--5b.png"
+
+/***/ },
+/* 667 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bksg--d5.png"
+
+/***/ },
+/* 668 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/pvk--bd.png"
+
+/***/ },
+/* 669 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/pvk--91.png"
+
+/***/ },
+/* 670 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/buv2--5f.png"
+
+/***/ },
+/* 671 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/buv2--e0.png"
+
+/***/ },
+/* 672 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bpm021--a2.png"
+
+/***/ },
+/* 673 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bpm021--3d.png"
+
+/***/ },
+/* 674 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bvm011--c0.png"
+
+/***/ },
+/* 675 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/bvm011--6c.png"
+
+/***/ },
+/* 676 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
