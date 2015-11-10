@@ -1,8 +1,9 @@
 const React = require('react');
-const {Router, Route} = require('react-router');
+const {Router, Route, IndexRoute} = require('react-router');
 const createHashHistory = require('history/lib/createHashHistory');
 const App = require('components/App');
 const DRL = require('components/schemas/DRL');
+const Home = require('components/Home');
 
 const history = createHashHistory({
   queryKey: false
@@ -11,6 +12,7 @@ const history = createHashHistory({
 module.exports = (
   <Router history={history}>
     <Route path="/" component={App}>
+      <IndexRoute component={Home}/>
       <Route path="schemas/DRL" component={DRL}/>
     </Route>
   </Router>
