@@ -32279,7 +32279,7 @@
 
 	var Nav = _require.Nav;
 	var Navbar = _require.Navbar;
-	var NavBrand = _require.NavBrand;
+	var NavItem = _require.NavItem;
 	var NavDropdown = _require.NavDropdown;
 	var MenuItem = _require.MenuItem;
 
@@ -32293,20 +32293,11 @@
 	      Navbar,
 	      null,
 	      React.createElement(
-	        NavBrand,
-	        null,
-	        React.createElement(
-	          'a',
-	          { href: '#' },
-	          'Учебное пособие'
-	        )
-	      ),
-	      React.createElement(
 	        Nav,
 	        null,
 	        React.createElement(
 	          NavDropdown,
-	          { eventKey: 2, title: 'Интерактивные схемы', id: 'basic-nav-dropdown' },
+	          { eventKey: 2, title: 'Наглядные схемы', id: 'basic-nav-dropdown' },
 	          React.createElement(
 	            LinkContainer,
 	            { to: '/schemas/DRL' },
@@ -32317,6 +32308,11 @@
 	            )
 	          ),
 	          React.createElement(MenuItem, { divider: true })
+	        ),
+	        React.createElement(
+	          NavItem,
+	          { href: '/military/public/books/rsp/index.html' },
+	          'Электронная книга'
 	        )
 	      )
 	    );
@@ -49379,6 +49375,11 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
+	      React.createElement(
+	        'h1',
+	        { className: 'home-heading' },
+	        'Учебное пособие'
+	      ),
 	      React.createElement('div', { className: 'home-img', style: style })
 	    );
 	  }
@@ -49388,9 +49389,9 @@
 
 /***/ },
 /* 694 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjQuNTM3IiBoZWlnaHQ9IjEyNC41MzYiIHZpZXdCb3g9IjAgMCAxMjQuNTM3IDEyNC41MzYiPjxwYXRoIGQ9Ik0xMDAuNjYgNDIuNDhsNS4xNTgtMjMuMTk1aC0zLjY1NHYtNC44OUg3OS42ODdWMy41MWg5LjU5OFYwSDY3LjMyN3YzLjUxaDkuNTk3djEwLjg4NEg1NC40NDd2NC44OUg1MC43OWw1LjE2IDIzLjE5N0gzNy4xNjVsOS4zNiAyOS4zNzdzNC4zNTggMi4wOCAxNC40ODggMy4zOXY0LjA0bDYuMzM2IDIuNjRjLjg2Mi4zNiAxLjM2IDEuMjcgMS4yIDIuMTktLjE2LjkyMi0uOTM4IDEuNjA3LTEuODcyIDEuNjU0bC01LjY2Ni4yOTh2MS44NDhsMS40MTguNTg4Yy4yNjQuMTA3LjYyNS4yNTguNzQuMjY4Ljk3NS0uMjUyIDYuMTg4LTEuNzY0IDE0LjI2My00LjE0NWwuNDEzLS4xMmMuNDM3LS4xMjQuOTAyLS4xIDEuMzIuMDc0bDUuNzczIDIuNDA0Yy42MjMuMjYgMS4wNzMuODE4IDEuMTk3IDEuNDgyLjEyMy42NjMtLjA5OCAxLjM0Ni0uNTg2IDEuODEybC02Ljk4IDYuNjZjLjQ3LjYuNzI1IDEuMjguNzMgMiAuMDA4IDEuMTkzLS43IDIuMjQyLTEuODUgMi43NC0uNDkuMjEzLTEuMjkuNDMyLTMuNDkuNDMyLTMuMjEzIDAtOC41NjMtLjQ4Ni0xMi45NDgtMS4zMTR2MjMuNzRoMzQuNTgyVjc1LjMyMmMxMC4zMzgtMS4zIDE0LjQ4NS0zLjQ2NiAxNC40ODUtMy40NjZsOS4zNjItMjkuMzc2SDEwMC42NnpNOTUuNzkgMjcuMzI3TDkzLjEwNiAzOS4zOUg2My41MDJsLTIuNjg2LTEyLjA2NGgzNC45NzZ6bTkuODggMzguNUg1MC45MzRsLTUuNTE2LTE3LjMxMmg2NS43NzNsLTUuNTE4IDE3LjMxM3oiLz48cGF0aCBkPSJNNzcuMjQgOTkuOTFjMS4wNzItLjQ2NS44NS0xLjg0NC0uOTg2LTIuNjA3bC0uMjAyLS4wODJjLjAzMy0uMDM2LjA2NS0uMDc3LjEtLjExMmw4LjYwNi04LjIxLTUuNzczLTIuNDAzLS4xMzYuMDRjLS4xMy4wMzYtMTIuODY0IDMuOC0xNC42NTYgNC4yNDctLjczLjE4My0xLjMyNC0uMTE1LTIuMTktLjQ2NWwtMTMuNDEtNS41NyA0LjYxLS4yMjcuMDA0LjAwMmMuMDEyLjAwNi4wMjIuMDEuMDM2LjAxNGwzLjY3NyAxLjE1NGMuMTY3LjA1LjM0Mi0uMDM3LjQxLS4xOTVsLjI0LS41OGMuMDY3LS4xNi4wMDMtLjM0NC0uMTQ4LS40MjhsLS4yOTctLjE1NiAxMC4wNDMtLjQ5LTYuNTQ2LTIuNzI1LTI2LjUxMi0zLjYxMmMtNy45MS00LjM1Mi0xOC40OTctOC43Ni0xOC40OTctOC43Ni0yLjA1LS44NTctNy45NDMuMTEtNy45NDMuMTEtOC42NDQuOTggNy4yNDUgMTAuMzk1IDcuMjQ1IDEwLjM5NSAzLjQzOCAxLjY2NCA2Ljc2NCAzLjIzIDkuOTQ2IDQuNjk2bDQuNjE3IDQuMDM1Yy0uMTc3LjIyOC0uMzQuNTAzLS40NzQuODI1LS40NjIgMS4xMDctLjM1MiAyLjA5OC4yNjMgMi4zNTQuMDU4LjAyIDEuNTY2LjYwNSAyLjIxNi44MTIgMS4zNS40MzggMi40OS42NzQgMy4zOC43MTNsMi45MzMgMi41NjNjLS4xNC4yMDItLjI3LjQzOC0uMzguNzAzLS40NjMgMS4xMS0uMzUgMi4xLjI2MiAyLjM1NS4wNTguMDIyIDEuNTY2LjYwNCAyLjIxNi44MTMgMS4yMjcuMzk3IDIuMjg0LjYzMiAzLjEzMy43bDcuMTg4IDYuMjgzIDYuNTQ2IDIuNzMtMTEuODctMTYuMWM3LjUyNiAzLjEzNiA3LjU2MyAyLjk1MyAxMi4xMjYgNC44NTQgNC41NjIgMS45IDE4LjI4IDMuMTcgMjAuMjI0IDIuMzI3eiIvPjwvc3ZnPg=="
+	module.exports = __webpack_require__.p + "images/logo--66.jpg"
 
 /***/ },
 /* 695 */
