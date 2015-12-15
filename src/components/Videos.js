@@ -3,7 +3,6 @@ const video = require('../../static/videos/purpose.mp4');
 
 const Videos = React.createClass({
   render() {
-    console.log(video);
     return (
       <div className="container">
         <video src={video} controls>

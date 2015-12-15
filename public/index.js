@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(697);
+	module.exports = __webpack_require__(698);
 
 
 /***/ },
@@ -26731,6 +26731,7 @@
 	var DRL = __webpack_require__(632);
 	var Home = __webpack_require__(693);
 	var Videos = __webpack_require__(695);
+	var Outer = __webpack_require__(697);
 
 	var history = createHashHistory({
 	  queryKey: false
@@ -26744,7 +26745,8 @@
 	    { path: '/', component: App },
 	    React.createElement(IndexRoute, { component: Home }),
 	    React.createElement(Route, { path: 'schemas/DRL', component: DRL }),
-	    React.createElement(Route, { path: 'videos', component: Videos })
+	    React.createElement(Route, { path: 'videos', component: Videos }),
+	    React.createElement(Route, { path: 'outer', component: Outer })
 	  )
 	);
 
@@ -32315,6 +32317,24 @@
 	          NavItem,
 	          { href: '/military/public/books/rsp/index.html' },
 	          'Электронная книга'
+	        ),
+	        React.createElement(
+	          LinkContainer,
+	          { to: 'videos' },
+	          React.createElement(
+	            MenuItem,
+	            null,
+	            'Видематериалы'
+	          )
+	        ),
+	        React.createElement(
+	          LinkContainer,
+	          { to: 'outer' },
+	          React.createElement(
+	            MenuItem,
+	            null,
+	            'Интерактивные схемы'
+	          )
 	        )
 	      )
 	    );
@@ -49406,7 +49426,6 @@
 
 	var Videos = React.createClass({
 	  render: function render() {
-	    console.log(video);
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
@@ -49435,6 +49454,39 @@
 
 /***/ },
 /* 697 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(2);
+
+	var Outer = React.createClass({
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      { className: "container" },
+	      React.createElement(
+	        "h1",
+	        null,
+	        React.createElement(
+	          "a",
+	          { href: "#" },
+	          "Запустить интерактивное приложение"
+	        )
+	      ),
+	      React.createElement(
+	        "small",
+	        null,
+	        "Только если текущая ОС - windows и на ней установалено приложение."
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Outer;
+
+/***/ },
+/* 698 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

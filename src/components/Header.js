@@ -12,6 +12,8 @@ const Header = React.createClass({
             <MenuItem divider />
           </NavDropdown>
           <NavItem href="/military/public/books/rsp/index.html">Электронная книга</NavItem>
+          <LinkContainer to="videos"><MenuItem>Видематериалы</MenuItem></LinkContainer>
+          <LinkContainer to="outer"><MenuItem>Интерактивные схемы</MenuItem></LinkContainer>
         </Nav>
       </Navbar>
     );

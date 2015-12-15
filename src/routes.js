@@ -5,6 +5,7 @@ const App = require('components/App');
 const DRL = require('components/schemas/DRL');
 const Home = require('components/Home');
 const Videos = require('components/Videos');
+const Outer = require('components/Outer');
 
 const history = createHashHistory({
   queryKey: false
@@ -16,6 +17,7 @@ module.exports = (
       <IndexRoute component={Home}/>
       <Route path="schemas/DRL" component={DRL}/>
       <Route path="videos" component={Videos}/>
+      <Route path="outer" component={Outer}/>
     </Route>
   </Router>
 );
