@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(695);
+	module.exports = __webpack_require__(697);
 
 
 /***/ },
@@ -26730,6 +26730,7 @@
 	var App = __webpack_require__(390);
 	var DRL = __webpack_require__(632);
 	var Home = __webpack_require__(693);
+	var Videos = __webpack_require__(695);
 
 	var history = createHashHistory({
 	  queryKey: false
@@ -26742,7 +26743,8 @@
 	    Route,
 	    { path: '/', component: App },
 	    React.createElement(IndexRoute, { component: Home }),
-	    React.createElement(Route, { path: 'schemas/DRL', component: DRL })
+	    React.createElement(Route, { path: 'schemas/DRL', component: DRL }),
+	    React.createElement(Route, { path: 'videos', component: Videos })
 	  )
 	);
 
@@ -49395,6 +49397,44 @@
 
 /***/ },
 /* 695 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(2);
+	var video = __webpack_require__(696);
+
+	var Videos = React.createClass({
+	  render: function render() {
+	    console.log(video);
+	    return React.createElement(
+	      'div',
+	      { className: 'container' },
+	      React.createElement(
+	        'video',
+	        { src: video, controls: true },
+	        'Your browser does not support the ',
+	        React.createElement(
+	          'code',
+	          null,
+	          'video'
+	        ),
+	        ' element.'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Videos;
+
+/***/ },
+/* 696 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "videos/purpose.mp4"
+
+/***/ },
+/* 697 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

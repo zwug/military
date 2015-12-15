@@ -39,6 +39,10 @@ const config = {
         loader: 'url'
       },
       {
+        test: /\.mp4/,
+        loader: 'file?name=videos/[name].[ext]'
+      },
+      {
         test: /\.svg/,
         loader: 'url!svgo'
       }
