@@ -44518,13 +44518,15 @@
 /* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(2);
 
 	var Ebook = React.createClass({
 	  render: function render() {
-	    return React.createElement("iframe", { className: "ebook", width: "100%", height: "100%", frameBorder: "0", src: "/public/books/rsp/index.html" });
+	    // /public/books/rsp/index.html
+	    var ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
+	    return React.createElement('iframe', { className: 'ebook', width: '100%', height: '100%', frameBorder: '0', src: ebookPath });
 	  }
 	});
 
