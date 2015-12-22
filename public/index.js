@@ -26617,7 +26617,7 @@
 	              React.createElement(
 	                MenuItem,
 	                null,
-	                'ДРЛ'
+	                'РСП-6М2'
 	              )
 	            )
 	          ),
@@ -28544,24 +28544,16 @@
 
 	"use strict";
 
-	var _setPrototypeOf = __webpack_require__(284);
+	var _Object$create = __webpack_require__(268)["default"];
 
-	var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
+	var _Object$setPrototypeOf = __webpack_require__(284)["default"];
 
-	var _create = __webpack_require__(268);
-
-	var _create2 = _interopRequireDefault(_create);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _typeof(obj) { return obj && obj.constructor === Symbol ? "symbol" : typeof obj; }
-
-	exports.default = function (subClass, superClass) {
+	exports["default"] = function (subClass, superClass) {
 	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
 	  }
 
-	  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
+	  subClass.prototype = _Object$create(superClass && superClass.prototype, {
 	    constructor: {
 	      value: subClass,
 	      enumerable: false,
@@ -28569,7 +28561,7 @@
 	      configurable: true
 	    }
 	  });
-	  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
+	  if (superClass) _Object$setPrototypeOf ? _Object$setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	};
 
 	exports.__esModule = true;
