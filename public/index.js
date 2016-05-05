@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(555);
+	module.exports = __webpack_require__(559);
 
 
 /***/ },
@@ -20745,7 +20745,11 @@
 	    var keys = Object.getOwnPropertyNames(sourceComponent);
 	    for (var i=0; i<keys.length; ++i) {
 	        if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]]) {
-	            targetComponent[keys[i]] = sourceComponent[keys[i]];
+	            try {
+	                targetComponent[keys[i]] = sourceComponent[keys[i]];
+	            } catch (error) {
+
+	            }
 	        }
 	    }
 
@@ -21249,6 +21253,7 @@
 	var POPUP_TOGGLE = _require2.POPUP_TOGGLE;
 	var POPUP_UPDATE = _require2.POPUP_UPDATE;
 
+
 	var PopupInitialState = {
 	  src: '',
 	  text: '',
@@ -21332,8 +21337,8 @@
 	var DRL = __webpack_require__(489);
 	var Home = __webpack_require__(550);
 	var Videos = __webpack_require__(551);
-	var Outer = __webpack_require__(553);
-	var Ebook = __webpack_require__(554);
+	var Outer = __webpack_require__(557);
+	var Ebook = __webpack_require__(558);
 
 	var history = createHashHistory({
 	  queryKey: false
@@ -28544,16 +28549,24 @@
 
 	"use strict";
 
-	var _Object$create = __webpack_require__(268)["default"];
+	var _setPrototypeOf = __webpack_require__(284);
 
-	var _Object$setPrototypeOf = __webpack_require__(284)["default"];
+	var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-	exports["default"] = function (subClass, superClass) {
+	var _create = __webpack_require__(268);
+
+	var _create2 = _interopRequireDefault(_create);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _typeof(obj) { return obj && obj.constructor === Symbol ? "symbol" : typeof obj; }
+
+	exports.default = function (subClass, superClass) {
 	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
 	  }
 
-	  subClass.prototype = _Object$create(superClass && superClass.prototype, {
+	  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
 	    constructor: {
 	      value: subClass,
 	      enumerable: false,
@@ -28561,7 +28574,7 @@
 	      configurable: true
 	    }
 	  });
-	  if (superClass) _Object$setPrototypeOf ? _Object$setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
 	};
 
 	exports.__esModule = true;
@@ -31904,8 +31917,6 @@
 	// Source: http://jsfiddle.net/vWx8V/
 	// http://stackoverflow.com/questions/5603195/full-list-of-javascript-keycodes
 
-
-
 	/**
 	 * Conenience method returns corresponding value for given keyName or keyCode.
 	 *
@@ -31989,7 +32000,7 @@
 	  '[': 219,
 	  '\\': 220,
 	  ']': 221,
-	  "'": 222,
+	  "'": 222
 	}
 
 	// Helper aliases
@@ -35032,7 +35043,7 @@
 	exports.version = version;
 
 	function getType(component) {
-	  if (version[0] === 0 && version[1] >= 13) return component;
+	  if (version[0] >= 15 || version[0] === 0 && version[1] >= 13) return component;
 
 	  return component.type;
 	}
@@ -43799,6 +43810,7 @@
 	var Modal = _require.Modal;
 	var Button = _require.Button;
 
+
 	var ModalInfo = React.createClass({
 	  propTypes: {
 	    src: React.PropTypes.string.isRequired,
@@ -44189,13 +44201,13 @@
 /* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/bpr011sm2--9c.png"
+	module.exports = __webpack_require__.p + "images/bpr011sm2--3a.png"
 
 /***/ },
 /* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/adrl--96.png"
+	module.exports = __webpack_require__.p + "images/adrl--72.png"
 
 /***/ },
 /* 523 */
@@ -44384,7 +44396,7 @@
 	        React.createElement(
 	          'p',
 	          null,
-	          'Федеральное государственное образовательное учреждение высшего образования Московский государственный университет информационных технологий радиотехники и автоматики (МИРЭА)'
+	          'Московский технологический университет'
 	        ),
 	        React.createElement(
 	          'h1',
@@ -44394,7 +44406,7 @@
 	        React.createElement(
 	          'h3',
 	          null,
-	          'Электронный учебник по дисциплине ВСП-12'
+	          'Электронный учебник по дисциплине ВСП-11'
 	        ),
 	        React.createElement('div', { className: 'home-img', style: style }),
 	        React.createElement(
@@ -44443,7 +44455,12 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
-	var video = __webpack_require__(552);
+	var Video = __webpack_require__(552);
+
+	var purpose = __webpack_require__(553);
+	var common = __webpack_require__(554);
+	var drl = __webpack_require__(555);
+	var prl = __webpack_require__(556);
 
 	var Videos = React.createClass({
 	  render: function render() {
@@ -44451,15 +44468,16 @@
 	      'div',
 	      { className: 'container' },
 	      React.createElement(
-	        'video',
-	        { src: video, controls: true },
-	        'Your browser does not support the ',
-	        React.createElement(
-	          'code',
-	          null,
-	          'video'
-	        ),
-	        ' element.'
+	        'div',
+	        { className: 'row' },
+	        React.createElement(Video, { src: purpose, title: 'Назначение и состав' }),
+	        React.createElement(Video, { src: common, title: 'Общее расположение' })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'row' },
+	        React.createElement(Video, { src: drl, title: 'ДРЛ ТТХ' }),
+	        React.createElement(Video, { src: prl, title: 'ПРЛ ТТХ' })
 	      )
 	    );
 	  }
@@ -44471,10 +44489,71 @@
 /* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "videos/purpose.mp4"
+	"use strict";
+
+	var React = __webpack_require__(2);
+
+	var Video = React.createClass({
+	  propTypes: {
+	    title: React.PropTypes.string.isRequired,
+	    src: React.PropTypes.string.isRequired
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      { className: "col-xs-6" },
+	      React.createElement(
+	        "div",
+	        { className: "video" },
+	        React.createElement(
+	          "h2",
+	          null,
+	          this.props.title
+	        ),
+	        React.createElement(
+	          "video",
+	          { src: this.props.src, controls: true, width: "100%" },
+	          "Your browser does not support the ",
+	          React.createElement(
+	            "code",
+	            null,
+	            "video"
+	          ),
+	          " element."
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Video;
 
 /***/ },
 /* 553 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "videos/purpose.mp4"
+
+/***/ },
+/* 554 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "videos/common.mp4"
+
+/***/ },
+/* 555 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "videos/drl.mp4"
+
+/***/ },
+/* 556 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "videos/prl.mp4"
+
+/***/ },
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -44507,7 +44586,7 @@
 	module.exports = Outer;
 
 /***/ },
-/* 554 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44525,7 +44604,7 @@
 	module.exports = Ebook;
 
 /***/ },
-/* 555 */
+/* 559 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
