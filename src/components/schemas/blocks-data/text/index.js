@@ -17,6 +17,17 @@ const pvk = require('html!./pvk.html');
 const buv2 = require('html!./buv2.html');
 const bpm021 = require('html!./bpm021.html');
 const bvm011 = require('html!./bvm011.html');
+const bchk011 = require('html!./bchk011.html');
+const bop = require('html!./bop.html');
+const bsf = require('html!./bsf.html');
+const bprn021 = require('html!./bprn021.html');
+const buv = require('html!./buv.html');
+const uvch = require('html!./uvch.html');
+const nadduv = require('html!./nadduv.html');
+const bpr02 = require('html!./bpr02.html');
+const bg02 = require('html!./bg02.html');
+const bp_apch = require('html!./bp_apch.html');
+const bf = require('html!./bf.html');
 
 module.exports = {
   br009,
@@ -27,6 +38,7 @@ module.exports = {
   adrl,
   bp213,
   brn02,
+  bprn021,
   bp138,
   bpchs,
   bost011,
@@ -37,5 +49,15 @@ module.exports = {
   pvk,
   buv2,
   bpm021,
-  bvm011
+  bvm011,
+  bchk011,
+  bop,
+  bsf,
+  buv,
+  uvch,
+  nadduv,
+  bpr02,
+  bp_apch,
+  bg02,
+  bf
 };

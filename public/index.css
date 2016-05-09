@@ -6743,6 +6743,9 @@ button.close {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+.modal.in .modal-body {
+  font-size: 18px;
+}
 .modal-footer {
   clear: both;
 }
@@ -6754,6 +6757,18 @@ button.close {
   width: 174px;
   float: left;
 }
+.prl-left-side {
+  width: 174px;
+  float: left;
+}
+.prl-center-side {
+  width: 87px;
+  float: left;
+}
+.prl-right-side {
+  width: 348px;
+  float: left;
+}
 html,
 body {
   height: 100%;
@@ -6763,6 +6778,9 @@ body {
 }
 body {
   position: relative;
+}
+p {
+  text-indent: 20px;
 }
 .home {
   text-align: center;

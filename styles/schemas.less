@@ -35,6 +35,9 @@
 .modal.in {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  .modal-body {
+    font-size: 18px;
+  }
 }
 
 .modal-footer {
@@ -48,5 +51,20 @@
 
 .drl-right-side {
   width: 2 * @block-width;
+  float: left;
+}
+
+.prl-left-side {
+  width: 2 * @block-width;
+  float: left;
+}
+
+.prl-center-side {
+  width: @block-width;
+  float: left;
+}
+
+.prl-right-side {
+  width: 4 * @block-width;
   float: left;
 }

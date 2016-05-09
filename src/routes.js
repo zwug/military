@@ -3,6 +3,7 @@ const {Router, Route, IndexRoute} = require('react-router');
 const createHashHistory = require('history/lib/createHashHistory');
 const App = require('components/App');
 const DRL = require('components/schemas/DRL');
+const PRL = require('components/schemas/PRL');
 const Home = require('components/Home');
 const Videos = require('components/Videos');
 const Outer = require('components/Outer');
@@ -17,6 +18,7 @@ module.exports = (
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="schemas/DRL" component={DRL}/>
+      <Route path="schemas/PRL" component={PRL}/>
       <Route path="videos" component={Videos}/>
       <Route path="outer" component={Outer}/>
       <Route path="ebook" component={Ebook}/>
