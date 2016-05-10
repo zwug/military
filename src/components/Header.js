@@ -24,8 +24,13 @@ const Header = React.createClass({
             </NavDropdown>
             <NavDropdown eventKey={2} title="Электронные книги" id="ebooks-nav-dropdown">
               <LinkContainer to="ebook"><MenuItem>РСП-6М2</MenuItem></LinkContainer>
+
+              <LinkContainer to="/parts/1"><MenuItem>Пособие - часть 1</MenuItem></LinkContainer>
+              <LinkContainer to="/parts/2"><MenuItem>Пособие - часть 2</MenuItem></LinkContainer>
+              <LinkContainer to="/parts/3"><MenuItem>Пособие - часть 3</MenuItem></LinkContainer>
+              <LinkContainer to="/parts/4"><MenuItem>Пособие - часть 4</MenuItem></LinkContainer>
             </NavDropdown>
-            <LinkContainer to="videos"><NavItem>Видематериалы</NavItem></LinkContainer>
+            <LinkContainer to="videos"><NavItem>Видеоматериалы</NavItem></LinkContainer>
             <LinkContainer to="outer"><NavItem>Интерактивные схемы</NavItem></LinkContainer>
           </Nav>
         </Navbar.Collapse>

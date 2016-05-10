@@ -6792,8 +6792,8 @@ p {
   background-size: contain;
 }
 .header-logo {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin: 0;
   background-size: cover;
 }
@@ -6822,4 +6822,11 @@ p {
 .video {
   margin: 10px;
   width: 100%;
+}
+.pdf-container {
+  text-align: center;
+}
+.pdf-page-num {
+  font-size: 24px;
+  padding: 0 20px;
 }
