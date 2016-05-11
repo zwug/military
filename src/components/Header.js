@@ -31,7 +31,8 @@ const Header = React.createClass({
               <LinkContainer to="/parts/4"><MenuItem>Пособие - часть 4</MenuItem></LinkContainer>
             </NavDropdown>
             <LinkContainer to="videos"><NavItem>Видеоматериалы</NavItem></LinkContainer>
-            <LinkContainer to="outer"><NavItem>Интерактивные схемы</NavItem></LinkContainer>
+            <NavItem>Интерактивные схемы</NavItem>
+            {/*<LinkContainer to="outer"><NavItem>Интерактивные схемы</NavItem></LinkContainer>*/}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

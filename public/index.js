@@ -26735,13 +26735,9 @@
 	            )
 	          ),
 	          React.createElement(
-	            LinkContainer,
-	            { to: 'outer' },
-	            React.createElement(
-	              NavItem,
-	              null,
-	              'Интерактивные схемы'
-	            )
+	            NavItem,
+	            null,
+	            'Интерактивные схемы'
 	          )
 	        )
 	      )
@@ -45101,8 +45097,8 @@
 
 	var Ebook = React.createClass({
 	  render: function render() {
-	    //const ebookPath = '/public/books/rsp/index.html';
-	    var ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
+	    var ebookPath = '/public/books/rsp/index.html';
+	    //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
 	    return React.createElement('iframe', { className: 'ebook', width: '100%', height: '100%', frameBorder: '0', src: ebookPath });
 	  }
 	});
