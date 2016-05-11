@@ -45097,7 +45097,7 @@
 
 	var Ebook = React.createClass({
 	  render: function render() {
-	    var ebookPath = '/public/books/rsp/cover.html';
+	    var ebookPath = 'books/rsp/cover.html';
 	    //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
 	    return React.createElement('iframe', { className: 'ebook', width: '100%', height: '100%', frameBorder: '0', src: ebookPath });
 	  }
