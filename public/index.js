@@ -26656,7 +26656,7 @@
 	          null,
 	          React.createElement(
 	            NavDropdown,
-	            { eventKey: 1, title: 'Наглядные схемы', id: 'basic-nav-dropdown' },
+	            { eventKey: 1, title: 'Расположение блоков', id: 'basic-nav-dropdown' },
 	            React.createElement(
 	              LinkContainer,
 	              { to: '/schemas/DRL' },
@@ -44908,6 +44908,11 @@
 	          'h3',
 	          null,
 	          'Электронный учебник по дисциплине ВСП-11'
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Радиолокационная система посадки РСП6-М2'
 	        ),
 	        React.createElement('div', { className: 'home-img', style: style }),
 	        React.createElement(

@@ -14,6 +14,7 @@ const Home = React.createClass({
           <p>Московский технологический университет</p>
           <h1>Военная кафедра</h1>
           <h3>Электронный учебник по дисциплине ВСП-11</h3>
+          <h3>Радиолокационная система посадки РСП6-М2</h3>
           <div className="home-img" style={style} />
           <div className="row">
             <div className="pull-right credentials">

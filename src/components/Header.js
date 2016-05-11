@@ -18,7 +18,7 @@ const Header = React.createClass({
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavDropdown eventKey={1} title="Наглядные схемы" id="basic-nav-dropdown">
+            <NavDropdown eventKey={1} title="Расположение блоков" id="basic-nav-dropdown">
               <LinkContainer to="/schemas/DRL"><MenuItem>ДРЛ</MenuItem></LinkContainer>
               <LinkContainer to="/schemas/PRL"><MenuItem>ПРЛ</MenuItem></LinkContainer>
             </NavDropdown>
