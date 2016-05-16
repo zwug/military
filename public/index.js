@@ -96,7 +96,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(603);
+	module.exports = __webpack_require__(604);
 
 
 /***/ },
@@ -21391,7 +21391,7 @@
 	var Videos = __webpack_require__(584);
 	var Outer = __webpack_require__(590);
 	var Ebook = __webpack_require__(591);
-	var Parts = __webpack_require__(592);
+	var Parts = __webpack_require__(593);
 
 	var history = createHashHistory({
 	  queryKey: false
@@ -26685,7 +26685,7 @@
 	              React.createElement(
 	                MenuItem,
 	                null,
-	                'РСП-6М2'
+	                'С.И. Волков, А.А. Каргопольцев, Н.Н. Курилов - радиолокационные системы посадки РСП-6М2'
 	              )
 	            ),
 	            React.createElement(
@@ -26733,11 +26733,6 @@
 	              null,
 	              'Видеоматериалы'
 	            )
-	          ),
-	          React.createElement(
-	            NavItem,
-	            null,
-	            'Интерактивные схемы'
 	          )
 	        )
 	      )
@@ -45094,10 +45089,59 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
+	var arrowSrc = __webpack_require__(592);
 
 	var Ebook = React.createClass({
+	  shouldComponentUpdate: function shouldComponentUpdate() {
+	    return false;
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var _this = this;
+
+	    var timeout = 600;
+	    setTimeout(function () {
+	      var iframe = document.querySelector('iframe').contentDocument;
+	      _this.onClick();
+	      iframe.addEventListener('click', function () {
+	        setTimeout(function () {
+	          _this.onClick();
+	        }, timeout);
+	      });
+	    }, timeout);
+	  },
+	  onClick: function onClick() {
+	    var iframe = document.querySelector('iframe').contentDocument;
+	    var wrapper = iframe.querySelector('.body-inner');
+	    var scrollable = iframe.querySelector('.book-body');
+
+	    if (iframe.querySelector('.page-wrapper').clientHeight > 800) {
+	      (function () {
+	        var scrollTo = function scrollTo(element, to, duration) {
+	          if (duration < 0) return;
+	          var difference = to - element.scrollTop;
+	          var perTick = difference / duration * 2;
+
+	          setTimeout(function () {
+	            element.scrollTop = element.scrollTop + perTick;
+	            scrollTo(element, to, duration - 2);
+	          }, 10);
+	        };
+
+	        scrollable.setAttribute('style', 'overflow: overlay;');
+	        wrapper.style.position = 'relative';
+	        var arrowContainer = iframe.createElement('div');
+	        arrowContainer.setAttribute('class', 'arrow-top');
+	        arrowContainer.setAttribute('style', 'position: absolute;\n          height: 50px;\n          width: 50px;\n          bottom: 50px;\n          right: 30px;\n          cursor: pointer;\n          background: url(\'/' + arrowSrc + '\');');
+
+	        wrapper.appendChild(arrowContainer);
+	        arrowContainer.addEventListener('click', function () {
+	          scrollTo(scrollable, 0, 100);
+	        });
+	      })();
+	    }
+	  },
 	  render: function render() {
-	    var ebookPath = 'books/rsp/cover.html';
+	    var ebookPath = 'public/books/rsp/cover.html';
 	    //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
 	    return React.createElement('iframe', { className: 'ebook', width: '100%', height: '100%', frameBorder: '0', src: ebookPath });
 	  }
@@ -45109,22 +45153,28 @@
 /* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "images/back-to-top--50.png"
+
+/***/ },
+/* 593 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(2);
-	var Part = __webpack_require__(593);
+	var Part = __webpack_require__(594);
 
 	var parts = [{}, {
-	  src: __webpack_require__(599),
+	  src: __webpack_require__(600),
 	  pages: 298
 	}, {
-	  src: __webpack_require__(600),
+	  src: __webpack_require__(601),
 	  pages: 223
 	}, {
-	  src: __webpack_require__(601),
+	  src: __webpack_require__(602),
 	  pages: 128
 	}, {
-	  src: __webpack_require__(602),
+	  src: __webpack_require__(603),
 	  pages: 116
 	}];
 
@@ -45139,78 +45189,78 @@
 	module.exports = Parts;
 
 /***/ },
-/* 593 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(2);
-	__webpack_require__(594);
-	var PDF = __webpack_require__(598);
-
-	var Part = React.createClass({
-	  getInitialState: function getInitialState() {
-	    return {
-	      currentPage: 1
-	    };
-	  },
-
-	  propTypes: {
-	    src: React.PropTypes.string.isRequired,
-	    pages: React.PropTypes.number.isRequired
-	  },
-	  prevPage: function prevPage(ev) {
-	    ev.preventDefault();
-	    this.setState({
-	      currentPage: this.state.currentPage > 1 ? this.state.currentPage - 1 : 1
-	    });
-	  },
-	  nextPage: function nextPage(ev) {
-	    ev.preventDefault();
-	    this.setState({ currentPage: this.state.currentPage < this.props.pages ? this.state.currentPage + 1 : this.props.pages });
-	  },
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { className: 'container pdf-container' },
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement(
-	          'button',
-	          { onClick: this.prevPage },
-	          'Previous page'
-	        ),
-	        React.createElement(
-	          'span',
-	          { className: 'pdf-page-num' },
-	          this.state.currentPage
-	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this.nextPage },
-	          'Next page'
-	        )
-	      ),
-	      React.createElement(PDF, { file: this.props.src, page: this.state.currentPage, scale: 1.4 })
-	    );
-	  }
-	});
-
-	module.exports = Part;
-
-/***/ },
 /* 594 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(2);
+	__webpack_require__(595);
+	var PDF = __webpack_require__(599);
+
+	var Part = React.createClass({
+	  getInitialState: function getInitialState() {
+	    return {
+	      currentPage: 1
+	    };
+	  },
+
+	  propTypes: {
+	    src: React.PropTypes.string.isRequired,
+	    pages: React.PropTypes.number.isRequired
+	  },
+	  prevPage: function prevPage(ev) {
+	    ev.preventDefault();
+	    this.setState({
+	      currentPage: this.state.currentPage > 1 ? this.state.currentPage - 1 : 1
+	    });
+	  },
+	  nextPage: function nextPage(ev) {
+	    ev.preventDefault();
+	    this.setState({ currentPage: this.state.currentPage < this.props.pages ? this.state.currentPage + 1 : this.props.pages });
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'container pdf-container' },
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'button',
+	          { onClick: this.prevPage },
+	          'Previous page'
+	        ),
+	        React.createElement(
+	          'span',
+	          { className: 'pdf-page-num' },
+	          this.state.currentPage
+	        ),
+	        React.createElement(
+	          'button',
+	          { onClick: this.nextPage },
+	          'Next page'
+	        )
+	      ),
+	      React.createElement(PDF, { file: this.props.src, page: this.state.currentPage, scale: 1.4 })
+	    );
+	  }
+	});
+
+	module.exports = Part;
+
+/***/ },
+/* 595 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/*** IMPORTS FROM imports-loader ***/
-	var PDF = __webpack_require__(595);
+	var PDF = __webpack_require__(596);
 
 	'use strict';
 
 	var React = __webpack_require__(2);
-	__webpack_require__(594);
-	var PDF = __webpack_require__(598);
+	__webpack_require__(595);
+	var PDF = __webpack_require__(599);
 
 	var Part = React.createClass({
 	  getInitialState: function getInitialState() {
@@ -45265,7 +45315,7 @@
 
 
 /***/ },
-/* 595 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/* Copyright 2012 Mozilla Foundation
@@ -53881,7 +53931,7 @@
 	var dynamicLoaderSupported = typeof requirejs !== 'undefined' && requirejs.load;
 	var fakeWorkerFilesLoader = useRequireEnsure ? (function (callback) {
 	  __webpack_require__.e/* nsure */(1, function () {
-	    var worker = __webpack_require__(596);
+	    var worker = __webpack_require__(597);
 	    callback(worker.WorkerMessageHandler);
 	  });
 	}) : dynamicLoaderSupported ? (function (callback) {
@@ -56167,9 +56217,9 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 596 */,
 /* 597 */,
-/* 598 */
+/* 598 */,
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -56275,31 +56325,31 @@
 
 
 /***/ },
-/* 599 */
+/* 600 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/part1.pdf"
 
 /***/ },
-/* 600 */
+/* 601 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/part2.pdf"
 
 /***/ },
-/* 601 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/part3.pdf"
 
 /***/ },
-/* 602 */
+/* 603 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/part4.pdf"
 
 /***/ },
-/* 603 */
+/* 604 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
