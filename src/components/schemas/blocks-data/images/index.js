@@ -176,10 +176,6 @@ module.exports = {
     refactored: bp_apchRefactored,
     base: bp_apchBase
   },
-  bvm011: {
-    refactored: bvm011Refactored,
-    base: bvm011Base
-  },
   bf: {
     refactored: bfRefactored,
     base: bfBase
