@@ -2,10 +2,13 @@ const React = require('react');
 const arrowSrc = require('../../static/images/back-to-top.png');
 
 const Ebook = React.createClass({
-  shouldComponentUpdate() {
-    return false;
-  },
   componentDidMount() {
+    this.createArrow()
+  },
+  componentWillUpdate() {
+    this.createArrow();
+  },
+  createArrow() {
     const timeout = 600;
     setTimeout(() => {
       let iframe = document.querySelector('iframe').contentDocument;
@@ -30,13 +33,15 @@ const Ebook = React.createClass({
         let arrowContainer = iframe.createElement('div');
         arrowContainer.setAttribute('class', 'arrow-top');
         arrowContainer.setAttribute('style',
-          `position: absolute;
+          `position: fixed;
           height: 50px;
           width: 50px;
-          bottom: 50px;
+          bottom: 5px;
           right: 30px;
           cursor: pointer;
-          background: url('/${arrowSrc}');`
+          background: url('${arrowSrc}');
+          background-size: contain;
+          z-index: 100`
         );
 
         function scrollTo(element, to, duration) {
@@ -57,7 +62,7 @@ const Ebook = React.createClass({
       }
   },
   render() {
-    const ebookPath = 'public/books/rsp/cover.html';
+    const ebookPath = `/public/books/${this.props.routeParams.book}/index.html`;
     //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
     return (
       <iframe className="ebook" width="100%" height="100%" frameBorder="0" src={ebookPath}/>

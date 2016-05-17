@@ -22,7 +22,7 @@ module.exports = (
       <Route path="schemas/PRL" component={PRL}/>
       <Route path="videos" component={Videos}/>
       <Route path="outer" component={Outer}/>
-      <Route path="ebook" component={Ebook}/>
+      <Route path="book/:book" component={Ebook}/>
       <Route path="parts/:partId" component={Parts}/>
     </Route>
   </Router>

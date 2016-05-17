@@ -23,16 +23,16 @@ const Header = React.createClass({
               <LinkContainer to="/schemas/PRL"><MenuItem>ПРЛ</MenuItem></LinkContainer>
             </NavDropdown>
             <NavDropdown eventKey={2} title="Электронные книги" id="ebooks-nav-dropdown">
-              <LinkContainer to="ebook">
+              <LinkContainer to="/book/rsp">
                 <MenuItem>
-                  С.И. Волков, А.А. Каргопольцев, Н.Н. Курилов - радиолокационные системы посадки РСП-6М2
+                  <strong>Радиолокационные системы посадки РСП-6М2</strong> - С.И. Волков, А.А. Каргопольцев, Н.Н. Курилов
                 </MenuItem>
               </LinkContainer>
-
-              <LinkContainer to="/parts/1"><MenuItem>Пособие - часть 1</MenuItem></LinkContainer>
-              <LinkContainer to="/parts/2"><MenuItem>Пособие - часть 2</MenuItem></LinkContainer>
-              <LinkContainer to="/parts/3"><MenuItem>Пособие - часть 3</MenuItem></LinkContainer>
-              <LinkContainer to="/parts/4"><MenuItem>Пособие - часть 4</MenuItem></LinkContainer>
+              <LinkContainer to="/book/lobachev">
+                <MenuItem>
+                  <strong>Радиолокационные системы управления воздушным движением</strong> - С.И. Волков, Ю.В. Лобачев, Е.С. Перевозов
+                </MenuItem>
+              </LinkContainer>
             </NavDropdown>
             <LinkContainer to="videos"><NavItem>Видеоматериалы</NavItem></LinkContainer>
             {/*<LinkContainer to="outer"><NavItem>Интерактивные схемы</NavItem></LinkContainer>*/}
