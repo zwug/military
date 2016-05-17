@@ -21408,7 +21408,7 @@
 	    React.createElement(Route, { path: 'schemas/PRL', component: PRL }),
 	    React.createElement(Route, { path: 'videos', component: Videos }),
 	    React.createElement(Route, { path: 'outer', component: Outer }),
-	    React.createElement(Route, { path: 'ebook', component: Ebook }),
+	    React.createElement(Route, { path: 'book/:book', component: Ebook }),
 	    React.createElement(Route, { path: 'parts/:partId', component: Parts })
 	  )
 	);
@@ -26681,47 +26681,30 @@
 	            { eventKey: 2, title: 'Электронные книги', id: 'ebooks-nav-dropdown' },
 	            React.createElement(
 	              LinkContainer,
-	              { to: 'ebook' },
+	              { to: '/book/rsp' },
 	              React.createElement(
 	                MenuItem,
 	                null,
-	                'С.И. Волков, А.А. Каргопольцев, Н.Н. Курилов - радиолокационные системы посадки РСП-6М2'
+	                React.createElement(
+	                  'strong',
+	                  null,
+	                  'Радиолокационные системы посадки РСП-6М2'
+	                ),
+	                ' - С.И. Волков, А.А. Каргопольцев, Н.Н. Курилов'
 	              )
 	            ),
 	            React.createElement(
 	              LinkContainer,
-	              { to: '/parts/1' },
+	              { to: '/book/lobachev' },
 	              React.createElement(
 	                MenuItem,
 	                null,
-	                'Пособие - часть 1'
-	              )
-	            ),
-	            React.createElement(
-	              LinkContainer,
-	              { to: '/parts/2' },
-	              React.createElement(
-	                MenuItem,
-	                null,
-	                'Пособие - часть 2'
-	              )
-	            ),
-	            React.createElement(
-	              LinkContainer,
-	              { to: '/parts/3' },
-	              React.createElement(
-	                MenuItem,
-	                null,
-	                'Пособие - часть 3'
-	              )
-	            ),
-	            React.createElement(
-	              LinkContainer,
-	              { to: '/parts/4' },
-	              React.createElement(
-	                MenuItem,
-	                null,
-	                'Пособие - часть 4'
+	                React.createElement(
+	                  'strong',
+	                  null,
+	                  'Радиолокационные системы управления воздушным движением'
+	                ),
+	                ' - С.И. Волков, Ю.В. Лобачев, Е.С. Перевозов'
 	              )
 	            )
 	          ),
@@ -44373,10 +44356,6 @@
 	    refactored: bp_apchRefactored,
 	    base: bp_apchBase
 	  },
-	  bvm011: {
-	    refactored: bvm011Refactored,
-	    base: bvm011Base
-	  },
 	  bf: {
 	    refactored: bfRefactored,
 	    base: bfBase
@@ -45092,10 +45071,13 @@
 	var arrowSrc = __webpack_require__(592);
 
 	var Ebook = React.createClass({
-	  shouldComponentUpdate: function shouldComponentUpdate() {
-	    return false;
-	  },
 	  componentDidMount: function componentDidMount() {
+	    this.createArrow();
+	  },
+	  componentWillUpdate: function componentWillUpdate() {
+	    this.createArrow();
+	  },
+	  createArrow: function createArrow() {
 	    var _this = this;
 
 	    var timeout = 600;
@@ -45131,7 +45113,7 @@
 	        wrapper.style.position = 'relative';
 	        var arrowContainer = iframe.createElement('div');
 	        arrowContainer.setAttribute('class', 'arrow-top');
-	        arrowContainer.setAttribute('style', 'position: absolute;\n          height: 50px;\n          width: 50px;\n          bottom: 50px;\n          right: 30px;\n          cursor: pointer;\n          background: url(\'/' + arrowSrc + '\');');
+	        arrowContainer.setAttribute('style', 'position: fixed;\n          height: 50px;\n          width: 50px;\n          bottom: 5px;\n          right: 30px;\n          cursor: pointer;\n          background: url(\'' + arrowSrc + '\');\n          background-size: contain;\n          z-index: 100');
 
 	        wrapper.appendChild(arrowContainer);
 	        arrowContainer.addEventListener('click', function () {
@@ -45141,7 +45123,7 @@
 	    }
 	  },
 	  render: function render() {
-	    var ebookPath = 'public/books/rsp/cover.html';
+	    var ebookPath = '/public/books/' + this.props.routeParams.book + '/index.html';
 	    //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
 	    return React.createElement('iframe', { className: 'ebook', width: '100%', height: '100%', frameBorder: '0', src: ebookPath });
 	  }
@@ -45153,7 +45135,7 @@
 /* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/back-to-top--50.png"
+	module.exports = __webpack_require__.p + "images/back-to-top--7b.png"
 
 /***/ },
 /* 593 */
