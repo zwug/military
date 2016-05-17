@@ -62,7 +62,7 @@ const Ebook = React.createClass({
       }
   },
   render() {
-    const ebookPath = `/public/books/${this.props.routeParams.book}/index.html`;
+    const ebookPath = `books/${this.props.routeParams.book}/index.html`;
     //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
     return (
       <iframe className="ebook" width="100%" height="100%" frameBorder="0" src={ebookPath}/>
