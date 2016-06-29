@@ -11,6 +11,7 @@ const Ebook = React.createClass({
   createArrow() {
     const timeout = 600;
     setTimeout(() => {
+      document.domain = 'localhost';
       let iframe = document.querySelector('iframe').contentDocument;
       this.onClick();
       iframe.addEventListener('click', () => {
@@ -22,6 +23,7 @@ const Ebook = React.createClass({
   },
   onClick() {
       let iframe = document.querySelector('iframe').contentDocument;
+      iframe.domain = 'localhost';
       let wrapper = iframe.querySelector('.body-inner');
       let scrollable = iframe.querySelector('.book-body');
 
@@ -63,7 +65,7 @@ const Ebook = React.createClass({
   },
   render() {
     const ebookPath = `books/${this.props.routeParams.book}/index.html`;
-    //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
+
     return (
       <iframe className="ebook" width="100%" height="100%" frameBorder="0" src={ebookPath}/>
     );

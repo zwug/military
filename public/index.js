@@ -85,7 +85,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/military/public/";
+/******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -45082,6 +45082,7 @@
 
 	    var timeout = 600;
 	    setTimeout(function () {
+	      document.domain = 'localhost';
 	      var iframe = document.querySelector('iframe').contentDocument;
 	      _this.onClick();
 	      iframe.addEventListener('click', function () {
@@ -45093,6 +45094,7 @@
 	  },
 	  onClick: function onClick() {
 	    var iframe = document.querySelector('iframe').contentDocument;
+	    iframe.domain = 'localhost';
 	    var wrapper = iframe.querySelector('.body-inner');
 	    var scrollable = iframe.querySelector('.book-body');
 
@@ -45124,7 +45126,7 @@
 	  },
 	  render: function render() {
 	    var ebookPath = 'books/' + this.props.routeParams.book + '/index.html';
-	    //const ebookPath = 'https://zwug.gitbooks.io/rsp6m2/content/';
+
 	    return React.createElement('iframe', { className: 'ebook', width: '100%', height: '100%', frameBorder: '0', src: ebookPath });
 	  }
 	});

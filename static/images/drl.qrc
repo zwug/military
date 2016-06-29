@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/new">
+        <file>PUN.png</file>
+        <file>BG02.png</file>
+        <file>BRN02.png</file>
+        <file>UVCH.png</file>
+        <file>BPR02.png</file>
+        <file>BPAPCH.png</file>
+        <file>BF.png</file>
+        <file>BP135.png</file>
+        <file>BUV021.png</file>
+        <file>BPM021.png</file>
+        <file>BPRN021.png</file>
+        <file>BKU-P.png</file>
+        <file>BOP.png</file>
+        <file>BSF.png</file>
+        <file>SP_02.png</file>
+        <file>BVM011.png</file>
+        <file>BG02_2.png</file>
+        <file>BG02_2_general.png</file>
+        <file>BPR02_2_general.png</file>
+        <file>BPR02_2.png</file>
+        <file>IKO.png</file>
+    </qresource>
+</RCC>
